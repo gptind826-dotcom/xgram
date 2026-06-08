@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ɢʟᴀꜱꜱ_ʙᴀᴄᴋɢʀᴏᴜɴᴅ_ɢʀᴀᴅɪᴇɴᴛ.хᴍʟ
+    ᴏʙꜱɪᴅɪᴀɴ ɪᴄᴇ ɢʀᴀᴅɪᴇɴᴛ ꜰᴏʀ ʟɪǫᴜɪᴅ ɢʟᴀꜱꜱ ᴡɪɴᴅᴏᴡ ʙᴀᴄᴋɢʀᴏᴜɴᴅ
+    ᴜꜱᴇᴅ ᴀꜱ ᴛʜᴇ ʙᴀꜱᴇ ʟᴀʏᴇʀ ʙᴇʜɪɴᴅ ᴀʟʟ ɢʟᴀꜱꜱ ᴘᴀɴᴇʟꜱ
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- ʙᴀꜱᴇ ɢʀᴀᴅɪᴇɴᴛ ʟᴀʏᴇʀ -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="@color/bg_gradient_start"
+                android:centerColor="@color/bg_gradient_mid"
+                android:endColor="@color/bg_gradient_end"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+    <!-- ꜱᴜʙᴛʟᴇ ɪᴄᴇ ɢʟᴏᴡ ᴏᴠᴇʀʟᴀʏ -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="80%p"
+                android:centerX="0.5"
+                android:centerY="0.3"
+                android:startColor="#0D26C6DA"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>
