@@ -1,0 +1,50 @@
+// Root build.gradle — MyTelegramApp
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    
+    ext {
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        minSdkVersion = 24
+        buildToolsVersion = "34.0.0"
+
+        // Change this to 8.1.1
+        gradleVersion = '8.1.1'
+        kotlinVersion = '1.9.10'
+        appCompatVersion = '1.6.1'
+        materialVersion = '1.11.0'
+        constraintLayoutVersion = '2.1.4'
+        recyclerViewVersion = '1.3.2'
+        cardViewVersion = '1.0.0'
+        glideVersion = '4.16.0'
+        okhttpVersion = '4.12.0'
+        gsonVersion = '2.10.1'
+        lifecycleVersion = '2.7.0'
+        navigationVersion = '2.7.6'
+        preferenceVersion = '1.2.1'
+        securityVersion = '1.1.0-alpha06'
+        workVersion = '2.9.0'
+        biometricVersion = '1.1.0'
+        roomVersion = '2.6.1'
+        coroutinesVersion = '1.7.3'
+        cryptoVersion = '1.1.0-alpha06'
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+wrapper {
+    gradleVersion = '8.1.1'
+    distributionType = Wrapper.DistributionType.ALL
+}
