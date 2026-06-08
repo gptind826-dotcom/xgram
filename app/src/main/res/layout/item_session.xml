@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/glass_card_bg"
+    android:layout_marginBottom="8dp">
+
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/glass_avatar_placeholder">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:tint="@color/glass_text_secondary"
+            android:contentDescription="@null" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sessionDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ᴅᴇᴠɪᴄᴇ"
+            android:textAppearance="@style/GlassText.Body"
+            android:textColor="@color/glass_text_primary" />
+
+        <TextView
+            android:id="@+id/sessionLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="ʟᴏᴄᴀᴛɪᴏɴ"
+            android:textAppearance="@style/GlassText.Caption"
+            android:textColor="@color/glass_text_secondary" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sessionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ᴏɴʟɪɴᴇ"
+        android:textAppearance="@style/GlassText.Body.Small"
+        android:textColor="@color/glass_success" />
+</LinearLayout>
