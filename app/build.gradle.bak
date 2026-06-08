@@ -1,0 +1,127 @@
+// ᴀᴘᴘ/ʙᴜɪʟᴅ.ɢʀᴀᴅʟᴇ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
+// ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ-ʟᴇᴠᴇʟ ʙᴜɪʟᴅ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.alternative.telegram'
+    compileSdk rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.alternative.telegram"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0-ʟɪǫᴜɪᴅɢʟᴀꜱꜱ"
+
+        // ꜱᴜᴘᴘᴏʀᴛ ꜰᴏʀ ᴊᴀᴠᴀ 8 ꜰᴇᴀᴛᴜʀᴇꜱ
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // ʀᴇꜱᴏᴜʀᴄᴇ ᴇxᴄʟᴜꜱɪᴏɴꜱ ꜰᴏʀ ꜱʟɪᴍ ᴀᴘᴋ
+        resConfigs "en"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "boolean", "ENABLE_LOGGING", "true"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ENABLE_LOGGING", "false"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt']
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    // ᴀɴᴅʀᴏɪᴅ ᴄᴏʀᴇ ʟɪʙʀᴀʀɪᴇꜱ
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+
+    // ʟɪꜰᴇᴄʏᴄʟᴇ & ᴀʀᴄʜɪᴛᴇᴄᴛᴜʀᴇ ᴄᴏᴍᴘᴏɴᴇɴᴛꜱ
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
+
+    // ɴᴀᴠɪɢᴀᴛɪᴏɴ ᴄᴏᴍᴘᴏɴᴇɴᴛꜱ
+    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationVersion"
+
+    // ᴘʀᴇꜰᴇʀᴇɴᴄᴇꜱ & ꜱᴇᴛᴛɪɴɢꜱ
+    implementation "androidx.preference:preference:$preferenceVersion"
+
+    // ꜱᴇᴄᴜʀᴇ ꜱᴛᴏʀᴀɢᴇ
+    implementation "androidx.security:security-crypto:$securityVersion"
+
+    // ʙɪᴏᴍᴇᴛʀɪᴄ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ
+    implementation "androidx.biometric:biometric:$biometricVersion"
+
+    // ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴡᴏʀᴋ
+    implementation "androidx.work:work-runtime:$workVersion"
+
+    // ɴᴇᴛᴡᴏʀᴋɪɴɢ — ᴏᴋʜᴛᴛᴘ & ɢʟɪᴅᴇ
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // ᴊꜱᴏɴ ꜱᴇʀɪᴀʟɪᴢᴀᴛɪᴏɴ
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // ᴡᴇʙꜱᴏᴄᴋᴇᴛ ꜱᴜᴘᴘᴏʀᴛ ꜰᴏʀ ʀᴇᴀʟ-ᴛɪᴍᴇ ᴍᴇꜱꜱᴀɢɪɴɢ
+    implementation 'org.java-websocket:Java-WebSocket:1.5.4'
+
+    // ᴄʀʏᴘᴛᴏɢʀᴀᴘʜʏ ꜱᴜᴘᴘᴏʀᴛ ꜰᴏʀ ꜱᴇꜱꜱɪᴏɴ ᴋᴇʏ ᴘᴀʀꜱɪɴɢ
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+
+    // ᴍᴜʟᴛɪᴅᴇx ꜱᴜᴘᴘᴏʀᴛ
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // ᴜɴɪᴛ ᴛᴇꜱᴛɪɴɢ
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.robolectric:robolectric:4.11.1'
+
+    // ᴀɴᴅʀᴏɪᴅ ɪɴꜱᴛʀᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴛᴇꜱᴛɪɴɢ
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+}
