@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ᴀᴄᴛɪᴠɪᴛʏ_ᴍᴀɪɴ.хᴍʟ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
+    ᴘᴏꜱᴛ-ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴀꜱʜʙᴏᴀʀᴅ ᴡɪᴛʜ ʟɪǫᴜɪᴅ ɢʟᴀꜱꜱ ɴᴀᴠɪɢᴀᴛɪᴏɴ
+    - ꜰʀᴏꜱᴛᴇᴅ ɢʟᴀꜱꜱ ꜱᴇᴀʀᴄʜ ʙᴀʀ
+    - ᴄʜᴀᴛ / ᴄʜᴀɴɴᴇʟꜱ / ɢʀᴏᴜᴘꜱ / ᴄᴏɴᴛᴀᴄᴛꜱ ᴛᴀʙꜱ
+    - ᴘʀᴏꜰɪʟᴇ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ
+    - ᴄᴏɴᴅɪᴛɪᴏɴᴀʟ ꜱᴇᴛᴛɪɴɢꜱ (ᴜꜱᴇʀ ᴠꜱ. ʙᴏᴛ)
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/glass_background_gradient">
+
+    <!-- ʙᴀᴄᴋɢʀᴏᴜɴᴅ ɪᴍᴀɢᴇ -->
+    <ImageView
+        android:id="@+id/mainBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- ɢʟᴀꜱꜱ ᴅɪᴍ ᴏᴠᴇʀʟᴀʏ -->
+    <View
+        android:id="@+id/mainDimOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D90A0E14" />
+
+    <!-- ᴍᴀɪɴ ᴄᴏɴᴛᴇɴᴛ ᴄᴏɴᴛᴀɪɴᴇʀ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ɢʟᴀꜱꜱ ᴛᴏᴏʟʙᴀʀ / ꜱᴇᴀʀᴄʜ ʙᴀʀ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/glass_nav_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <!-- ᴛɪᴛʟᴇ ʀᴏᴡ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/mainTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/main_title"
+                    android:textAppearance="@style/GlassText.Headline.Small"
+                    android:textColor="@color/glass_text_primary" />
+
+                <ImageButton
+                    android:id="@+id/settingsButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_preferences"
+                    android:tint="@color/glass_text_secondary"
+                    android:contentDescription="@string/action_settings" />
+            </LinearLayout>
+
+            <!-- ꜱᴇᴀʀᴄʜ ʙᴀʀ -->
+            <EditText
+                android:id="@+id/searchInput"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/glass_search_bg"
+                android:hint="@string/main_search_hint"
+                android:textColor="@color/glass_search_text"
+                android:textColorHint="@color/glass_search_hint"
+                android:textSize="15sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawableTint="@color/glass_search_hint"
+                android:drawablePadding="12dp"
+                android:inputType="text"
+                android:imeOptions="actionSearch" />
+        </LinearLayout>
+
+        <!-- ᴛᴀʙ ʟᴀʏᴏᴜᴛ -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mainTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/glass_nav_bg"
+            app:tabTextColor="@color/glass_text_secondary"
+            app:tabSelectedTextColor="@color/glass_accent_bright"
+            app:tabIndicatorColor="@color/glass_accent_bright"
+            app:tabIndicatorHeight="2dp"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="fixed"
+            app:tabGravity="fill" />
+
+        <!-- ᴠɪᴇᴡ ᴘᴀɢᴇʀ ꜰᴏʀ ᴛᴀʙ ᴄᴏɴᴛᴇɴᴛ -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mainViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- ʙᴏᴛᴛᴏᴍ ɴᴀᴠɪɢᴀᴛɪᴏɴ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mainBottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/glass_nav_bg"
+        app:itemIconTint="@color/glass_nav_selector"
+        app:itemTextColor="@color/glass_nav_selector"
+        app:itemIconSize="22dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/main_bottom_nav" />
+
+    <!-- ꜰʟᴏᴀᴛɪɴɢ ᴀᴄᴛɪᴏɴ ʙᴜᴛᴛᴏɴ (ɴᴇᴡ ᴄʜᴀᴛ) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNewChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:src="@android:drawable/ic_menu_edit"
+        android:tint="@color/glass_button_primary_text"
+        app:backgroundTint="@color/glass_accent"
+        app:elevation="4dp"
+        android:contentDescription="@string/chat_input_hint" />
+
+    <!-- ꜱᴇᴛᴛɪɴɢꜱ ᴘᴀɴᴇʟ (ꜱʟɪᴅᴇ-ɪɴ ꜱʜᴇᴇᴛ, ɪɴɪᴛɪᴀʟʟʏ ɢᴏɴᴇ) -->
+    <FrameLayout
+        android:id="@+id/settingsPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:visibility="gone">
+
+        <include layout="@layout/settings_panel" />
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
