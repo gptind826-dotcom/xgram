@@ -1,0 +1,126 @@
+// app/build.gradle — MyTelegramApp
+// Application-level build configuration
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.alternative.telegram'
+    compileSdk rootProject.ext.compileSdkVersion
+    
+    defaultConfig {
+        applicationId "com.alternative.telegram"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0-liquidglass"
+
+        // Support for Java 8 features
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Resource exclusions for slim APK
+        resConfigs "en"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "boolean", "ENABLE_LOGGING", "true"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ENABLE_LOGGING", "false"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt']
+        }
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Android core libraries
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation "com.google.android.material:material:${rootProject.ext.materialVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayoutVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recyclerViewVersion}"
+    implementation "androidx.cardview:cardview:${rootProject.ext.cardViewVersion}"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+
+    // Lifecycle & architecture components
+    implementation "androidx.lifecycle:lifecycle-viewmodel:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-livedata:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-process:${rootProject.ext.lifecycleVersion}"
+
+    // Navigation components
+    implementation "androidx.navigation:navigation-fragment:${rootProject.ext.navigationVersion}"
+    implementation "androidx.navigation:navigation-ui:${rootProject.ext.navigationVersion}"
+
+    // Preferences & settings
+    implementation "androidx.preference:preference:${rootProject.ext.preferenceVersion}"
+
+    // Secure storage
+    implementation "androidx.security:security-crypto:${rootProject.ext.securityVersion}"
+
+    // Biometric authentication
+    implementation "androidx.biometric:biometric:${rootProject.ext.biometricVersion}"
+
+    // Background work
+    implementation "androidx.work:work-runtime:${rootProject.ext.workVersion}"
+
+    // Networking — OkHttp & Glide
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okhttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okhttpVersion}"
+    implementation "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glideVersion}"
+
+    // JSON serialization
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
+
+    // WebSocket support for real-time messaging
+    implementation 'org.java-websocket:Java-WebSocket:1.5.4'
+
+    // Cryptography support for session key parsing
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+
+    // Multidex support
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Unit testing
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.robolectric:robolectric:4.11.1'
+
+    // Android instrumentation testing
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+}
