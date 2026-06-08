@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ꜱᴇᴛᴛɪɴɢꜱ_ᴘᴀɴᴇʟ.хᴍʟ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
+    ᴄᴏɴᴅɪᴛɪᴏɴᴀʟ ꜱᴇᴛᴛɪɴɢꜱ ᴘᴀɴᴇʟ
+    ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ᴀ: ᴜꜱᴇʀ ᴀᴄᴄᴏᴜɴᴛ ꜱᴇᴛᴛɪɴɢꜱ
+    ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ʙ: ʙᴏᴛ ᴛᴏᴋᴇɴ ꜱᴇᴛᴛɪɴɢꜱ
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/glass_dark_surface">
+
+    <!-- ᴛᴏᴏʟʙᴀʀ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/glass_nav_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/settingsCloseButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@color/glass_text_secondary"
+            android:contentDescription="@string/action_close" />
+
+        <TextView
+            android:id="@+id/settingsPanelTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/settings_title"
+            android:textAppearance="@style/GlassText.Title"
+            android:textColor="@color/glass_text_primary"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- ꜱᴄʀᴏʟʟᴀʙʟᴇ ᴄᴏɴᴛᴇɴᴛ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴘʀᴏꜰɪʟᴇ ʜᴇᴀᴅᴇʀ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/glass_card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/glass_avatar_placeholder">
+
+                    <TextView
+                        android:id="@+id/settingsAvatarInitial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="U"
+                        android:textColor="@color/glass_accent_bright"
+                        android:textSize="28sp"
+                        android:fontFamily="sans-serif-thin" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/settingsProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAppearance="@style/GlassText.Title"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <TextView
+                        android:id="@+id/settingsProfileStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_online"
+                        android:textAppearance="@style/GlassText.Body.Small"
+                        android:textColor="@color/glass_text_secondary"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴜʀʟ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_background_url"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/backgroundUrlInput"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/glass_input_bg"
+                    android:hint="@string/settings_background_url_hint"
+                    android:textColor="@color/glass_input_text"
+                    android:textColorHint="@color/glass_input_hint"
+                    android:textSize="14sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:inputType="textUri" />
+
+                <Button
+                    android:id="@+id/backgroundApplyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/glass_button_primary_bg"
+                    android:text="@string/settings_background_apply"
+                    android:textColor="@color/glass_button_primary_text"
+                    android:textSize="12sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/backgroundDefaultButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/glass_button_ghost_bg"
+                android:text="@string/settings_background_default"
+                android:textColor="@color/glass_button_ghost_text"
+                android:textSize="13sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ᴀ: ᴜꜱᴇʀ ᴀᴄᴄᴏᴜɴᴛ ꜱᴇᴛᴛɪɴɢꜱ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:id="@+id/userSettingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_account"
+                    android:textAppearance="@style/GlassText.Label"
+                    android:textColor="@color/glass_text_tertiary"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- ᴇᴅɪᴛ ᴘʀᴏꜰɪʟᴇ -->
+                <LinearLayout
+                    android:id="@+id/editProfileRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_edit"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_edit_profile"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ -->
+                <LinearLayout
+                    android:id="@+id/twoStepRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_lock_idle_lock"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_two_step"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ᴀᴄᴛɪᴠᴇ ꜱᴇꜱꜱɪᴏɴꜱ -->
+                <LinearLayout
+                    android:id="@+id/activeSessionsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_recent_history"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_active_sessions"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ᴘʀɪᴠᴀᴄʏ -->
+                <LinearLayout
+                    android:id="@+id/privacyRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_view"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_privacy"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ʙ: ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:id="@+id/botSettingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_bot_profile"
+                    android:textAppearance="@style/GlassText.Label"
+                    android:textColor="@color/glass_text_tertiary"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- ʙᴏᴛ ɴᴀᴍᴇ -->
+                <LinearLayout
+                    android:id="@+id/botNameRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_edit"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_bot_name"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ʙᴏᴛ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ -->
+                <LinearLayout
+                    android:id="@+id/botDescriptionRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_info_details"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_bot_description"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ᴄᴏᴍᴍᴀɴᴅ ɪɴꜱᴘᴇᴄᴛᴏʀ -->
+                <LinearLayout
+                    android:id="@+id/commandInspectorRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_command_inspector"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+
+                <!-- ʙᴏᴛ ᴡᴇʙʜᴏᴏᴋ -->
+                <LinearLayout
+                    android:id="@+id/botWebhookRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/glass_card_bg"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_set_as"
+                        android:tint="@color/glass_text_secondary"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_bot_webhook"
+                        android:textAppearance="@style/GlassText.Body"
+                        android:textColor="@color/glass_text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴄᴏᴍᴍᴏɴ ꜱᴇᴛᴛɪɴɢꜱ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_appearance"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="8dp" />
+
+            <!-- ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/glass_card_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_menu_notifications"
+                    android:tint="@color/glass_text_secondary"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_notifications"
+                    android:textAppearance="@style/GlassText.Body"
+                    android:textColor="@color/glass_text_primary" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/notificationsSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <!-- ʟᴏɢᴏᴜᴛ ʙᴜᴛᴛᴏɴ -->
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/glass_button_secondary_bg"
+                android:text="@string/action_logout"
+                android:textColor="@color/glass_error"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
