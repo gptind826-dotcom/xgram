@@ -269,12 +269,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void openSettingsPanel() {
         settingsPanel.setVisibility(View.VISIBLE);
-        settingsPanel.setTranslationX(settingsPanel.getWidth());
-        settingsPanel.animate()
-                .translationX(0)
-                .setDuration(300)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .start();
+        // Post to ensure layout is measured before animating
+        settingsPanel.post(() -> {
+            int panelWidth = settingsPanel.getMeasuredWidth();
+            if (panelWidth == 0) {
+                panelWidth = ((View) settingsPanel.getParent()).getMeasuredWidth();
+            }
+            settingsPanel.setTranslationX(panelWidth);
+            settingsPanel.animate()
+                    .translationX(0)
+                    .setDuration(300)
+                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .start();
+        });
     }
 
     private void closeSettingsPanel() {

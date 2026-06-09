@@ -101,6 +101,9 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glideVersion}"
 
+    // Glide transformations (blur, etc.)
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
     // JSON serialization
     implementation "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
 

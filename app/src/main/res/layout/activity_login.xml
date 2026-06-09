@@ -274,7 +274,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
-                            android:src="@android:drawable/ic_lock_idle_lock"
+                            android:src="@drawable/ic_lock"
                             android:tint="@color/login_session_accent"
                             android:contentDescription="@string/login_session_title" />
                     </FrameLayout>
