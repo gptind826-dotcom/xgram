@@ -1,4 +1,4 @@
-// Root build.gradle — MyTelegramApp
+// Root build.gradle — XGram
 buildscript {
     repositories {
         google()
@@ -10,9 +10,7 @@ buildscript {
         compileSdkVersion = 34
         targetSdkVersion = 34
         minSdkVersion = 24
-        buildToolsVersion = "34.0.0"
 
-        // Change this to 8.1.1
         gradleVersion = '8.1.1'
         kotlinVersion = '1.9.10'
         appCompatVersion = '1.6.1'
