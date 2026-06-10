@@ -1,54 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ᴀɴᴅʀᴏɪᴅᴍᴀɴɪꜰᴇꜱᴛ.хᴍʟ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
-    ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ᴍᴀɴɪꜰᴇꜱᴛ ᴡɪᴛʜ ꜰᴜʟʟ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ꜱᴇᴛ ꜰᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀʟᴛᴇʀɴᴀᴛɪᴠᴇ
-    ꜱᴜᴘᴘᴏʀᴛꜱ: ᴍᴛᴘʀᴏᴛᴏ ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ, ʙᴏᴛ ᴀᴘɪ, ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴘᴀʀꜱɪɴɢ, ʙᴀᴄᴋɢʀᴏᴜɴᴅ ɪᴍᴀɢᴇ ʟᴏᴀᴅɪɴɢ
--->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- ɴᴇᴛᴡᴏʀᴋ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ — ᴄᴏʀᴇ ꜰᴏʀ ᴀɴʏ ᴛᴇʟᴇɢʀᴀᴍ ᴄʟɪᴇɴᴛ -->
+    <!-- Network permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <!-- ꜱᴍꜱ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ ꜰᴏʀ ᴏᴛᴘ ᴀᴜᴛᴏ-ʀᴇᴀᴅ (ᴏᴘᴛɪᴏɴᴀʟ ꜰᴇᴀᴛᴜʀᴇ) -->
+    <!-- SMS permissions for OTP auto-read -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
-    <!-- ᴘʜᴏɴᴇ ꜱᴛᴀᴛᴇ ꜰᴏʀ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ ᴅᴇᴛᴇᴄᴛɪᴏɴ -->
+    <!-- Phone state for country code -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
 
-    <!-- ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ — ᴀɴᴅʀᴏɪᴅ 13+ -->
+    <!-- Notification permissions -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
-    <!-- ᴡᴀᴋᴇ ʟᴏᴄᴋ ꜰᴏʀ ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴍᴇꜱꜱᴀɢᴇ ꜱʏɴᴄ -->
+    <!-- Wake lock and vibration -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- ᴠɪʙʀᴀᴛɪᴏɴ ꜰᴏʀ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <!-- ꜱᴛᴏʀᴀɢᴇ ꜰᴏʀ ɪᴍᴀɢᴇ ᴄᴀᴄʜɪɴɢ ᴀɴᴅ ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴅᴏᴡɴʟᴏᴀᴅꜱ -->
+    <!-- Storage -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
-    <!-- ʙɪᴏᴍᴇᴛʀɪᴄ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ꜱᴇᴄᴜʀɪᴛʏ -->
+    <!-- Biometric -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
-    <!-- FLAG_SECURE is a window flag, not a permission. Applied programmatically to sensitive activities. -->
-
-    <!-- ʙᴀᴛᴛᴇʀʏ ᴏᴘᴛɪᴍɪᴢᴀᴛɪᴏɴ ᴇxᴇᴍᴘᴛɪᴏɴ ꜰᴏʀ ʙᴀᴄᴋɢʀᴏᴜɴᴅ ꜱᴇʀᴠɪᴄᴇ -->
+    <!-- Battery optimization -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
-    <!-- ʜᴀʀᴅᴡᴀʀᴇ ꜰᴇᴀᴛᴜʀᴇ ᴅᴇᴄʟᴀʀᴀᴛɪᴏɴꜱ -->
+    <!-- Hardware features -->
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
     <uses-feature android:name="android.hardware.fingerprint" android:required="false" />
     <uses-feature android:name="android.hardware.screen.portrait" android:required="false" />
@@ -69,73 +60,64 @@
         android:largeHeap="true"
         tools:targetApi="34">
 
-        <!-- ʟᴏɢɪɴ ᴀᴄᴛɪᴠɪᴛʏ — ᴀᴘᴘ ᴇɴᴛʀʏ ᴘᴏɪɴᴛ (ᴛʜʀᴇᴇ-ᴡᴀʏ ɢᴀᴛᴇᴡᴀʏ) -->
+        <!-- Login Activity - App Entry Point -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            android:configChanges="orientation|screenSize|smallestScreenSize|keyboardHidden">
+            android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- ᴍᴀɪɴ ᴅᴀꜱʜʙᴏᴀʀᴅ ᴀᴄᴛɪᴠɪᴛʏ — ᴘᴏꜱᴛ-ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ʜᴜʙ -->
+        <!-- Main Dashboard -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTask"
-            android:configChanges="orientation|screenSize|smallestScreenSize" />
+            android:launchMode="singleTask" />
 
-        <!-- ᴏᴛᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴀᴄᴛɪᴠɪᴛʏ — ꜱᴍꜱ ᴄᴏᴅᴇ ɪɴᴘᴜᴛ -->
+        <!-- OTP Verification -->
         <activity
             android:name=".OtpVerificationActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- ᴘʀᴏꜰɪʟᴇ ꜱᴇᴛᴛɪɴɢꜱ ᴀᴄᴛɪᴠɪᴛʏ -->
+        <!-- Profile Settings -->
         <activity
             android:name=".ProfileSettingsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- ʙᴏᴛ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴀᴄᴛɪᴠɪᴛʏ -->
+        <!-- Bot Management -->
         <activity
             android:name=".BotManagementActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- ᴀᴄᴛɪᴠᴇ ꜱᴇꜱꜱɪᴏɴꜱ ᴠɪᴇᴡᴇʀ -->
+        <!-- Active Sessions -->
         <activity
             android:name=".ActiveSessionsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="false" />
 
-        <!-- ʙᴀᴄᴋɢʀᴏᴜɴᴅ ꜱʏɴᴄ ꜱᴇʀᴠɪᴄᴇ ꜰᴏʀ ᴍᴇꜱꜱᴀɢᴇꜱ -->
+        <!-- Background Sync Service -->
         <service
             android:name=".service.MessageSyncService"
             android:exported="false"
             android:foregroundServiceType="dataSync"
             android:enabled="true" />
 
-        <!-- ꜱᴍꜱ ʀᴇᴄᴇɪᴠᴇʀ ꜰᴏʀ ᴏᴛᴘ ᴀᴜᴛᴏ-ᴄᴀᴘᴛᴜʀᴇ -->
+        <!-- SMS Receiver for OTP -->
         <receiver
             android:name=".receiver.SmsOtpReceiver"
-            android:exported="true"
-            android:permission="android.permission.BROADCAST_SMS">
+            android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <!-- ɴᴇᴛᴡᴏʀᴋ ꜱᴛᴀᴛᴇ ʀᴇᴄᴇɪᴠᴇʀ -->
+        <!-- Network State Receiver -->
         <receiver
             android:name=".receiver.NetworkStateReceiver"
             android:exported="false">
@@ -143,11 +125,6 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-
-        <!-- ɢʟɪᴅᴇ ᴍᴏᴅᴜʟᴇ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ꜰᴏʀ ɪᴍᴀɢᴇ ʟᴏᴀᴅɪɴɢ -->
-        <meta-data
-            android:name="com.alternative.telegram.GlideModule"
-            android:value="GlideModule" />
 
     </application>
 

@@ -1,7 +1,6 @@
 /*
- * ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ.ᴊᴀᴠᴀ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
- * ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ᴄʟᴀꜱꜱ
- * ɪɴɪᴛɪᴀʟɪᴢᴇꜱ ɢʟɪᴅᴇ, ɴᴇᴛᴡᴏʀᴋ ᴄᴏɴꜰɪɢ, ᴀɴᴅ ɢʟᴏʙᴀʟ ꜱᴛᴀᴛᴇ
+ * MyTelegramApp.java - XGram
+ * Application class with safe initialization
  */
 
 package com.alternative.telegram;
@@ -19,8 +18,12 @@ public class MyTelegramApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
-        Log.i(TAG, "MyTelegramApp initialized — Liquid Glass Edition");
+        try {
+            instance = this;
+            Log.i(TAG, "MyTelegramApp initialized - Liquid Glass Edition");
+        } catch (Exception e) {
+            Log.e(TAG, "Error during app initialization", e);
+        }
     }
 
     public static MyTelegramApp getInstance() {
@@ -30,12 +33,20 @@ public class MyTelegramApp extends Application {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        Glide.get(this).clearMemory();
+        try {
+            Glide.get(this).clearMemory();
+        } catch (Exception e) {
+            Log.e(TAG, "Error clearing Glide memory", e);
+        }
     }
 
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        Glide.get(this).trimMemory(level);
+        try {
+            Glide.get(this).trimMemory(level);
+        } catch (Exception e) {
+            Log.e(TAG, "Error trimming Glide memory", e);
+        }
     }
 }

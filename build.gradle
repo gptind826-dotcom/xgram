@@ -1,18 +1,10 @@
 // Root build.gradle — XGram
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-    
     ext {
         compileSdkVersion = 34
         targetSdkVersion = 34
         minSdkVersion = 24
 
-        gradleVersion = '8.1.1'
-        kotlinVersion = '1.9.10'
         appCompatVersion = '1.6.1'
         materialVersion = '1.11.0'
         constraintLayoutVersion = '2.1.4'
@@ -27,22 +19,19 @@ buildscript {
         securityVersion = '1.1.0-alpha06'
         workVersion = '2.9.0'
         biometricVersion = '1.1.0'
-        roomVersion = '2.6.1'
-        coroutinesVersion = '1.7.3'
-        cryptoVersion = '1.1.0-alpha06'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$gradleVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.android.tools.build:gradle:8.1.1'
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-wrapper {
-    gradleVersion = '8.1.1'
-    distributionType = Wrapper.DistributionType.ALL
 }

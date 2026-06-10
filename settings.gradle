@@ -1,16 +1,16 @@
-// settings.gradle — MyTelegramApp
-// Project module inclusions
-
 pluginManagement {
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
     }
+    plugins {
+        id 'com.android.application' version '8.1.1'
+    }
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
@@ -18,5 +18,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyTelegramApp"
+rootProject.name = "XGram"
 include(":app")
