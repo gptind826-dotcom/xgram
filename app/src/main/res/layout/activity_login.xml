@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ᴀᴄᴛɪᴠɪᴛʏ_ʟᴏɢɪɴ.хᴍʟ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
+    ʟɪǫᴜɪᴅ ɢʟᴀꜱꜱ ʟᴏɢɪɴ ɢᴀᴛᴇᴡᴀʏ ᴡɪᴛʜ ᴛʜʀᴇᴇ-ᴡᴀʏ ᴇɴᴛʀʏ ꜱʏꜱᴛᴇᴍ
+    - ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ʟᴏɢɪɴ (ᴍᴛᴘʀᴏᴛᴏ)
+    - ʙᴏᴛ ᴛᴏᴋᴇɴ ʟᴏɢɪɴ (ʙᴏᴛ ᴀᴘɪ)
+    - ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ʟᴏɢɪɴ (ᴛᴇʟᴇᴛʜᴏɴ/ᴘʏʀᴏɢʀᴀᴍ)
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/glass_background_gradient">
+
+    <!-- ʙᴀᴄᴋɢʀᴏᴜɴᴅ ɪᴍᴀɢᴇ ᴠɪᴇᴡ (ᴘᴏᴘᴜʟᴀᴛᴇᴅ ʙʏ ʙᴀᴄᴋɢʀᴏᴜɴᴅᴍᴀɴᴀɢᴇʀ) -->
+    <ImageView
+        android:id="@+id/loginBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- ɢʟᴀꜱꜱ ʙʟᴜʀ ᴏᴠᴇʀʟᴀʏ -->
+    <View
+        android:id="@+id/loginBlurOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC0A0E14" />
+
+    <!-- ᴍᴀɪɴ ꜱᴄʀᴏʟʟᴀʙʟᴇ ᴄᴏɴᴛᴇɴᴛ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="24dp">
+
+            <!-- ᴀᴘᴘ ʙʀᴀɴᴅɪɴɢ ꜱᴇᴄᴛɪᴏɴ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="32dp">
+
+                <!-- ʟᴏɢᴏ / ʙʀᴀɴᴅɪɴɢ ɪᴄᴏɴ (ɢʟᴀꜱꜱ ᴀᴄᴄᴇɴᴛ ᴄɪʀᴄʟᴇ) -->
+                <FrameLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/glass_logo_background">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="X"
+                        android:textColor="@color/glass_accent_bright"
+                        android:textSize="36sp"
+                        android:fontFamily="sans-serif-medium" />
+                </FrameLayout>
+
+                <!-- ᴀᴘᴘ ᴛɪᴛʟᴇ -->
+                <TextView
+                    android:id="@+id/loginTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_title"
+                    android:textAppearance="@style/GlassText.Headline"
+                    android:textColor="@color/glass_text_primary"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- ꜱᴜʙᴛɪᴛʟᴇ -->
+                <TextView
+                    android:id="@+id/loginSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_subtitle"
+                    android:textAppearance="@style/GlassText.Body"
+                    android:textColor="@color/glass_text_secondary"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- ʟᴏɢɪɴ ᴍᴇᴛʜᴏᴅ ꜱᴇʟᴇᴄᴛɪᴏɴ ᴘʀᴏᴍᴘᴛ -->
+            <TextView
+                android:id="@+id/loginMethodPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_method_prompt"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="start" />
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴏᴘᴛɪᴏɴ 1: ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ʟᴏɢɪɴ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <FrameLayout
+                android:id="@+id/optionPhoneContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/glass_login_option_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <!-- ɪᴄᴏɴ ᴄᴏɴᴛᴀɪɴᴇʀ -->
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/glass_avatar_placeholder">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@android:drawable/ic_menu_call"
+                            android:tint="@color/login_phone_accent"
+                            android:contentDescription="@string/login_phone_title" />
+                    </FrameLayout>
+
+                    <!-- ᴛᴇхᴛ ᴄᴏɴᴛᴇɴᴛ -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/optionPhoneTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_phone_title"
+                            android:textAppearance="@style/GlassText.Title"
+                            android:textSize="18sp"
+                            android:textColor="@color/glass_text_primary" />
+
+                        <TextView
+                            android:id="@+id/optionPhoneDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_phone_description"
+                            android:textAppearance="@style/GlassText.Body.Small"
+                            android:textColor="@color/glass_text_secondary"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <!-- ᴀʀʀᴏᴡ ɪᴄᴏɴ -->
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴏᴘᴛɪᴏɴ 2: ʙᴏᴛ ᴛᴏᴋᴇɴ ʟᴏɢɪɴ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <FrameLayout
+                android:id="@+id/optionBotContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/glass_login_option_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/glass_avatar_placeholder">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@android:drawable/ic_menu_preferences"
+                            android:tint="@color/login_bot_accent"
+                            android:contentDescription="@string/login_bot_title" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/optionBotTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_bot_title"
+                            android:textAppearance="@style/GlassText.Title"
+                            android:textSize="18sp"
+                            android:textColor="@color/glass_text_primary" />
+
+                        <TextView
+                            android:id="@+id/optionBotDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_bot_description"
+                            android:textAppearance="@style/GlassText.Body.Small"
+                            android:textColor="@color/glass_text_secondary"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ᴏᴘᴛɪᴏɴ 3: ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ʟᴏɢɪɴ -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <FrameLayout
+                android:id="@+id/optionSessionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/glass_login_option_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/glass_avatar_placeholder">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_lock"
+                            android:tint="@color/login_session_accent"
+                            android:contentDescription="@string/login_session_title" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/optionSessionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_session_title"
+                            android:textAppearance="@style/GlassText.Title"
+                            android:textSize="18sp"
+                            android:textColor="@color/glass_text_primary" />
+
+                        <TextView
+                            android:id="@+id/optionSessionDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_session_description"
+                            android:textAppearance="@style/GlassText.Body.Small"
+                            android:textColor="@color/glass_text_secondary"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/glass_text_tertiary"
+                        android:contentDescription="@null" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ʙᴏᴛᴛᴏᴍ ꜱᴘᴀᴄᴇʀ -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- ᴀᴘᴘ ᴠᴇʀꜱɪᴏɴ -->
+            <TextView
+                android:id="@+id/loginVersionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_version"
+                android:textAppearance="@style/GlassText.Caption"
+                android:textColor="@color/glass_text_disabled"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ᴘʀᴏɢʀᴇꜱꜱ ʙᴀʀ (ɪɴɪᴛɪᴀʟʟʏ ɢᴏɴᴇ) -->
+    <ProgressBar
+        android:id="@+id/loginProgressBar"
+        style="@style/GlassProgressBar.Circular"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- ʟᴏɢɪɴ ꜰᴏʀᴍ ᴏᴠᴇʀʟᴀʏ (ɪɴɪᴛɪᴀʟʟʏ ɢᴏɴᴇ) -->
+    <FrameLayout
+        android:id="@+id/loginFormOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E60A0E14"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <include layout="@layout/login_form_overlay" />
+    </FrameLayout>
+
+</FrameLayout>

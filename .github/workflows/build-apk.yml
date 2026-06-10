@@ -1,0 +1,128 @@
+name: Build & Release XGram APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.1.0)'
+        required: false
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Cache Gradle dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+    - name: Prepare release assets
+      run: |
+        mkdir -p release-assets
+        VERSION=$(grep -oP 'versionName "\K[^"]+' app/build.gradle || echo "1.0.0")
+        echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
+        cp app/build/outputs/apk/debug/app-debug.apk "release-assets/XGram-v${VERSION}-debug.apk"
+        cp app/build/outputs/apk/release/app-release-unsigned.apk "release-assets/XGram-v${VERSION}-release.apk"
+        echo "APK_VERSION=$VERSION" >> $GITHUB_ENV
+        echo "Build completed for version $VERSION"
+        ls -la release-assets/
+
+    - name: Upload Debug APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: XGram-debug-apk
+        path: release-assets/*-debug.apk
+        retention-days: 30
+
+    - name: Upload Release APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: XGram-release-apk
+        path: release-assets/*-release.apk
+        retention-days: 30
+
+    - name: Create GitHub Release
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ github.event.inputs.version }}
+        name: "XGram ${{ github.event.inputs.version }} - Telegram Auth Restored"
+        body: |
+          ## XGram ${{ github.event.inputs.version }} Release
+
+          ### What's New
+          - **Telegram Bot API Integration** - Real bot token authentication via Telegram Bot API
+          - **Phone OTP Login** - Full phone number authentication flow with SMS OTP
+          - **Session String Login** - Support for Telethon and Pyrogram session strings
+          - **Auto-detect session type** - Automatically identifies Telethon vs Pyrogram formats
+          - **Real-time bot data** - Fetches bot profile and updates from Telegram
+          - **Secure session storage** - EncryptedSharedPreferences for credential storage
+
+          ### Login Methods
+          1. **Bot Token** - Connect using your bot token from @BotFather
+          2. **Phone Number** - Login with SMS OTP verification
+          3. **Session String** - Import existing Telethon/Pyrogram sessions
+
+          ### Files
+          - `XGram-v${{ env.APK_VERSION }}-debug.apk` - Debug build
+          - `XGram-v${{ env.APK_VERSION }}-release.apk` - Release build (unsigned)
+        files: release-assets/*.apk
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create/Update Auto Release on Push
+      if: github.event_name == 'push'
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: latest
+        name: "XGram Latest Build"
+        body: |
+          ## XGram Latest Automated Build
+
+          This is an automated build from the latest commit on the main branch.
+
+          ### Features
+          - Telegram Bot API authentication
+          - Phone number OTP login
+          - Session string import (Telethon/Pyrogram)
+          - Liquid Glass UI design
+
+          **Commit:** ${{ github.sha }}
+          **Date:** ${{ github.event.head_commit.timestamp }}
+        files: release-assets/*.apk
+        draft: false
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

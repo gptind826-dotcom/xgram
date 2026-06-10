@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ꜱᴛʀɪɴɢꜱ.хᴍʟ — ᴍʏᴛᴇʟᴇɢʀᴀᴍᴀᴘᴘ
+    ᴀʟʟ ᴠɪꜱɪʙʟᴇ ᴛᴇхᴛ ᴠᴀʟᴜᴇꜱ ɪɴ ᴍɪɴɪ-ᴜɴɪᴄᴏᴅᴇ ꜰᴏɴᴛ ꜱᴛʏʟᴇ
+    ᴛʜᴇꜱᴇ ᴀʀᴇ ᴛʜᴇ ꜱᴏᴜʀᴄᴇ ꜱᴛʀɪɴɢꜱ — ᴛʜᴇ ᴍɪɴɪꜰᴏɴᴛᴄᴏɴᴠᴇʀᴛᴇʀ ᴛʀᴀɴꜱꜰᴏʀᴍꜱ ᴛʜᴇᴍ ᴀᴛ ʀᴜɴᴛɪᴍᴇ
+-->
+<resources>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ᴀᴘᴘ ʙʀᴀɴᴅɪɴɢ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="app_name">XGram</string>
+    <string name="app_tagline">ʟɪǫᴜɪᴅ ɢʟᴀꜱꜱ ᴍᴇꜱꜱᴀɢɪɴɢ</string>
+    <string name="app_version">ᴠ1.0.0 ʟɪǫᴜɪᴅɢʟᴀꜱꜱ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ɢᴇɴᴇʀᴀʟ ɪɴᴛᴇʀꜰᴀᴄᴇ ʟᴀʙᴇʟꜱ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="action_back">ʙᴀᴄᴋ</string>
+    <string name="action_next">ɴᴇхᴛ</string>
+    <string name="action_done">ᴅᴏɴᴇ</string>
+    <string name="action_cancel">ᴄᴀɴᴄᴇʟ</string>
+    <string name="action_save">ꜱᴀᴠᴇ</string>
+    <string name="action_delete">ᴅᴇʟᴇᴛᴇ</string>
+    <string name="action_edit">ᴇᴅɪᴛ</string>
+    <string name="action_close">ᴄʟᴏꜱᴇ</string>
+    <string name="action_refresh">ʀᴇꜰʀᴇꜱʜ</string>
+    <string name="action_search">ꜱᴇᴀʀᴄʜ</string>
+    <string name="action_settings">ꜱᴇᴛᴛɪɴɢꜱ</string>
+    <string name="action_logout">ʟᴏɢᴏᴜᴛ</string>
+    <string name="action_continue">ᴄᴏɴᴛɪɴᴜᴇ</string>
+    <string name="action_verify">ᴠᴇʀɪꜰʏ</string>
+    <string name="action_resend">ʀᴇꜱᴇɴᴅ</string>
+    <string name="action_copy">ᴄᴏᴘʏ</string>
+    <string name="action_share">ꜱʜᴀʀᴇ</string>
+    <string name="action_connect">ᴄᴏɴɴᴇᴄᴛ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ʟᴏɢɪɴ ᴀᴄᴛɪᴠɪᴛʏ — ᴛʜʀᴇᴇ-ᴡᴀʏ ɢᴀᴛᴇᴡᴀʏ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="login_title">ᴡᴇʟᴄᴏᴍᴇ</string>
+    <string name="login_subtitle">ꜱɪɢɴ ɪɴ ᴛᴏ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴄᴄᴏᴜɴᴛ</string>
+    <string name="login_method_prompt">ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ꜱɪɢɴ-ɪɴ ᴍᴇᴛʜᴏᴅ</string>
+
+    <!-- ᴏᴘᴛɪᴏɴ 1: ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ -->
+    <string name="login_phone_title">ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="login_phone_description">ꜱɪɢɴ ɪɴ ᴡɪᴛʜ ʏᴏᴜʀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴠɪᴀ ꜱᴍꜱ ᴏᴛᴘ</string>
+    <string name="login_phone_label">ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="login_country_code">ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ</string>
+    <string name="login_phone_number">ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="login_phone_hint">+1 234 567 8900</string>
+    <string name="login_phone_example">ᴇх: +1, +44, +91</string>
+
+    <!-- ᴏᴘᴛɪᴏɴ 2: ʙᴏᴛ ᴛᴏᴋᴇɴ -->
+    <string name="login_bot_title">ʙᴏᴛ ᴛᴏᴋᴇɴ</string>
+    <string name="login_bot_description">ꜱɪɢɴ ɪɴ ᴡɪᴛʜ ᴀ ʙᴏᴛ ᴛᴏᴋᴇɴ ꜰʀᴏᴍ @ʙᴏᴛꜰᴀᴛʜᴇʀ</string>
+    <string name="login_bot_label">ᴇɴᴛᴇʀ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏᴋᴇɴ</string>
+    <string name="login_bot_hint">123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</string>
+    <string name="login_bot_example">ɢᴇᴛ ᴀ ᴛᴏᴋᴇɴ ꜰʀᴏᴍ @ʙᴏᴛꜰᴀᴛʜᴇʀ</string>
+
+    <!-- ᴏᴘᴛɪᴏɴ 3: ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ -->
+    <string name="login_session_title">ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ</string>
+    <string name="login_session_description">ᴘᴀꜱᴛᴇ ᴀ ᴛᴇʟᴇᴛʜᴏɴ ᴏʀ ᴘʏʀᴏɢʀᴀᴍ ꜱᴇꜱꜱɪᴏɴ ꜱᴛʀɪɴɢ</string>
+    <string name="login_session_label">ᴘᴀꜱᴛᴇ ʏᴏᴜʀ ꜱᴇꜱꜱɪᴏɴ ꜱᴛʀɪɴɢ</string>
+    <string name="login_session_hint">ᴀɢʙᴅᴘᴛ... ᴏʀ ʙɢʙ_q... ꜱᴛʀɪɴɢ</string>
+    <string name="login_session_example">ꜱᴜᴘᴘᴏʀᴛꜱ ᴛᴇʟᴇᴛʜᴏɴ ᴀɴᴅ ᴘʏʀᴏɢʀᴀᴍ ꜰᴏʀᴍᴀᴛꜱ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ᴏᴛᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴄʀᴇᴇɴ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="otp_title">ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</string>
+    <string name="otp_subtitle">ᴇɴᴛᴇʀ ᴛʜᴇ ᴄᴏᴅᴇ ꜱᴇɴᴛ ᴛᴏ</string>
+    <string name="otp_code_hint">ᴏᴛᴘ ᴄᴏᴅᴇ</string>
+    <string name="otp_resend_timer">ʀᴇꜱᴇɴᴅ ɪɴ %d ꜱᴇᴄᴏɴᴅꜱ</string>
+    <string name="otp_resend_ready">ᴅɪᴅɴ\'ᴛ ʀᴇᴄᴇɪᴠᴇ ᴀ ᴄᴏᴅᴇ?</string>
+    <string name="otp_auto_read">ᴀᴜᴛᴏ-ᴅᴇᴛᴇᴄᴛɪɴɢ ꜱᴍꜱ ᴄᴏᴅᴇ...</string>
+    <string name="otp_2fa_title">ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</string>
+    <string name="otp_2fa_password">2ꜰᴀ ᴘᴀꜱꜱᴡᴏʀᴅ</string>
+    <string name="otp_2fa_hint">ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ᴘᴀꜱꜱᴡᴏʀᴅ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ᴍᴀɪɴ ᴀᴄᴛɪᴠɪᴛʏ — ᴘᴏꜱᴛ-ᴀᴜᴛʜ ᴅᴀꜱʜʙᴏᴀʀᴅ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="main_title">ᴄʜᴀᴛꜱ</string>
+    <string name="main_search_hint">ꜱᴇᴀʀᴄʜ ᴄʜᴀᴛꜱ...</string>
+    <string name="main_tab_chats">ᴄʜᴀᴛꜱ</string>
+    <string name="main_tab_channels">ᴄʜᴀɴɴᴇʟꜱ</string>
+    <string name="main_tab_groups">ɢʀᴏᴜᴘꜱ</string>
+    <string name="main_tab_contacts">ᴄᴏɴᴛᴀᴄᴛꜱ</string>
+    <string name="main_empty_chats">ɴᴏ ᴄʜᴀᴛꜱ ʏᴇᴛ</string>
+    <string name="main_empty_channels">ɴᴏ ᴄʜᴀɴɴᴇʟꜱ ʏᴇᴛ</string>
+    <string name="main_empty_groups">ɴᴏ ɢʀᴏᴜᴘꜱ ʏᴇᴛ</string>
+    <string name="main_empty_contacts">ɴᴏ ᴄᴏɴᴛᴀᴄᴛꜱ ʏᴇᴛ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ꜱᴇᴛᴛɪɴɢꜱ ᴘᴀɴᴇʟꜱ — ᴄᴏɴᴅɪᴛɪᴏɴᴀʟ ʙᴀꜱᴇᴅ ᴏɴ ʟᴏɢɪɴ ᴛʏᴘᴇ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="settings_title">ꜱᴇᴛᴛɪɴɢꜱ</string>
+    <string name="settings_account">ᴀᴄᴄᴏᴜɴᴛ</string>
+    <string name="settings_profile">ᴘʀᴏꜰɪʟᴇ</string>
+    <string name="settings_privacy">ᴘʀɪᴠᴀᴄʏ</string>
+    <string name="settings_notifications">ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ</string>
+    <string name="settings_appearance">ᴀᴘᴘᴇᴀʀᴀɴᴄᴇ</string>
+    <string name="settings_data">ᴅᴀᴛᴀ ᴀɴᴅ ꜱᴛᴏʀᴀɢᴇ</string>
+    <string name="settings_help">ʜᴇʟᴘ</string>
+
+    <!-- ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ᴀ: ᴜꜱᴇʀ ᴀᴄᴄᴏᴜɴᴛ ꜱᴇᴛᴛɪɴɢꜱ -->
+    <string name="settings_edit_profile">ᴇᴅɪᴛ ᴘʀᴏꜰɪʟᴇ</string>
+    <string name="settings_username">ᴜꜱᴇʀɴᴀᴍᴇ</string>
+    <string name="settings_bio">ʙɪᴏ</string>
+    <string name="settings_bio_hint">ᴡʀɪᴛᴇ ᴀ ꜱʜᴏʀᴛ ʙɪᴏ...</string>
+    <string name="settings_phone">ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="settings_two_step">ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</string>
+    <string name="settings_active_sessions">ᴀᴄᴛɪᴠᴇ ꜱᴇꜱꜱɪᴏɴꜱ</string>
+    <string name="settings_change_password">ᴄʜᴀɴɢᴇ ᴘᴀꜱꜱᴡᴏʀᴅ</string>
+    <string name="settings_privacy_phone">ᴡʜᴏ ᴄᴀɴ ꜱᴇᴇ ᴍʏ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="settings_privacy_last_seen">ᴡʜᴏ ᴄᴀɴ ꜱᴇᴇ ᴍʏ ʟᴀꜱᴛ ꜱᴇᴇɴ</string>
+    <string name="settings_privacy_photo">ᴡʜᴏ ᴄᴀɴ ꜱᴇᴇ ᴍʏ ᴘʀᴏꜰɪʟᴇ ᴘʜᴏᴛᴏ</string>
+    <string name="settings_delete_account">ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ</string>
+
+    <!-- ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ʙ: ʙᴏᴛ ᴛᴏᴋᴇɴ ꜱᴇᴛᴛɪɴɢꜱ -->
+    <string name="settings_bot_profile">ʙᴏᴛ ᴘʀᴏꜰɪʟᴇ</string>
+    <string name="settings_bot_name">ʙᴏᴛ ɴᴀᴍᴇ</string>
+    <string name="settings_bot_description">ʙᴏᴛ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ</string>
+    <string name="settings_bot_about">ᴀʙᴏᴜᴛ</string>
+    <string name="settings_bot_commands">ᴄᴏᴍᴍᴀɴᴅꜱ</string>
+    <string name="settings_bot_webhook">ᴡᴇʙʜᴏᴏᴋ ꜱᴇᴛᴛɪɴɢꜱ</string>
+    <string name="settings_bot_inline">ɪɴʟɪɴᴇ ᴍᴏᴅᴇ</string>
+    <string name="settings_bot_privacy">ɢʀᴏᴜᴘ ᴘʀɪᴠᴀᴄʏ</string>
+    <string name="settings_bot_domain">ᴅᴏᴍᴀɪɴ</string>
+    <string name="settings_command_inspector">ᴄᴏᴍᴍᴀɴᴅ ɪɴꜱᴘᴇᴄᴛᴏʀ</string>
+    <string name="settings_command_log">ᴄᴏᴍᴍᴀɴᴅ ʟᴏɢ</string>
+    <string name="settings_no_commands_yet">ɴᴏ ᴄᴏᴍᴍᴀɴᴅꜱ ʀᴇᴄᴇɪᴠᴇᴅ ʏᴇᴛ</string>
+
+    <!-- ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴜʀʟ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ -->
+    <string name="settings_background_url">ʙᴀᴄᴋɢʀᴏᴜɴᴅ ɪᴍᴀɢᴇ ᴜʀʟ</string>
+    <string name="settings_background_url_hint">ᴘᴀꜱᴛᴇ ᴀɴ ɪᴍɢʙʙ ᴅɪʀᴇᴄᴛ ɪᴍᴀɢᴇ ʟɪɴᴋ...</string>
+    <string name="settings_background_apply">ᴀᴘᴘʟʏ ʙᴀᴄᴋɢʀᴏᴜɴᴅ</string>
+    <string name="settings_background_default">ᴜꜱᴇ ᴅᴇꜰᴀᴜʟᴛ ʙᴀᴄᴋɢʀᴏᴜɴᴅ</string>
+    <string name="settings_background_loading">ʟᴏᴀᴅɪɴɢ ɪᴍᴀɢᴇ...</string>
+    <string name="settings_background_error">ꜰᴀɪʟᴇᴅ ᴛᴏ ʟᴏᴀᴅ ɪᴍᴀɢᴇ</string>
+    <string name="settings_background_success">ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴀᴘᴘʟɪᴇᴅ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ꜱᴇꜱꜱɪᴏɴ ᴘᴀʀꜱᴇʀ ᴍᴇꜱꜱᴀɢᴇꜱ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="session_detected_telethon">ᴛᴇʟᴇᴛʜᴏɴ ꜱᴇꜱꜱɪᴏɴ ᴅᴇᴛᴇᴄᴛᴇᴅ</string>
+    <string name="session_detected_pyrogram">ᴘʏʀᴏɢʀᴀᴍ ꜱᴇꜱꜱɪᴏɴ ᴅᴇᴛᴇᴄᴛᴇᴅ</string>
+    <string name="session_invalid">ɪɴᴠᴀʟɪᴅ ꜱᴇꜱꜱɪᴏɴ ꜱᴛʀɪɴɢ</string>
+    <string name="session_parsing">ᴘᴀʀꜱɪɴɢ ꜱᴇꜱꜱɪᴏɴ...</string>
+    <string name="session_connecting">ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴛᴏ ᴅᴀᴛᴀᴄᴇɴᴛᴇʀ...</string>
+    <string name="session_connected">ᴄᴏɴɴᴇᴄᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ</string>
+    <string name="session_dc_info">ᴅᴀᴛᴀᴄᴇɴᴛᴇʀ: %1$d</string>
+    <string name="session_user_id">ᴜꜱᴇʀ ɪᴅ: %1$s</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ɴᴇᴛᴡᴏʀᴋ ᴀɴᴅ ᴇʀʀᴏʀ ᴍᴇꜱꜱᴀɢᴇꜱ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="error_network">ɴᴇᴛᴡᴏʀᴋ ᴇʀʀᴏʀ. ᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴄᴏɴɴᴇᴄᴛɪᴏɴ.</string>
+    <string name="error_invalid_phone">ɪɴᴠᴀʟɪᴅ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ</string>
+    <string name="error_invalid_bot_token">ɪɴᴠᴀʟɪᴅ ʙᴏᴛ ᴛᴏᴋᴇɴ ꜰᴏʀᴍᴀᴛ</string>
+    <string name="error_invalid_session">ɪɴᴠᴀʟɪᴅ ꜱᴇꜱꜱɪᴏɴ ꜱᴛʀɪɴɢ</string>
+    <string name="error_otp_expired">ᴏᴛᴘ ʜᴀꜱ ᴇхᴘɪʀᴇᴅ</string>
+    <string name="error_otp_wrong">ɪɴᴠᴀʟɪᴅ ᴏᴛᴘ ᴄᴏᴅᴇ</string>
+    <string name="error_2fa_wrong">ɪɴᴄᴏʀʀᴇᴄᴛ 2ꜰᴀ ᴘᴀꜱꜱᴡᴏʀᴅ</string>
+    <string name="error_rate_limit">ᴛᴏᴏ ᴍᴀɴʏ ᴀᴛᴛᴇᴍᴘᴛꜱ. ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ.</string>
+    <string name="error_unknown">ᴀɴ ᴜɴᴇхᴘᴇᴄᴛᴇᴅ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ</string>
+    <string name="error_timeout">ʀᴇǫᴜᴇꜱᴛ ᴛɪᴍᴇᴅ ᴏᴜᴛ</string>
+    <string name="error_unauthorized">ꜱᴇꜱꜱɪᴏɴ ᴇхᴘɪʀᴇᴅ. ᴘʟᴇᴀꜱᴇ ʟᴏɢ ɪɴ ᴀɢᴀɪɴ.</string>
+    <string name="error_flood_wait">ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ %1$d ꜱᴇᴄᴏɴᴅꜱ ʙᴇꜰᴏʀᴇ ʀᴇᴛʀʏɪɴɢ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ʟᴏᴀᴅɪɴɢ ᴀɴᴅ ꜱᴛᴀᴛᴜꜱ ᴍᴇꜱꜱᴀɢᴇꜱ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="loading_generic">ʟᴏᴀᴅɪɴɢ...</string>
+    <string name="loading_chats">ʟᴏᴀᴅɪɴɢ ᴄʜᴀᴛꜱ...</string>
+    <string name="loading_messages">ʟᴏᴀᴅɪɴɢ ᴍᴇꜱꜱᴀɢᴇꜱ...</string>
+    <string name="loading_profile">ʟᴏᴀᴅɪɴɢ ᴘʀᴏꜰɪʟᴇ...</string>
+    <string name="status_online">ᴏɴʟɪɴᴇ</string>
+    <string name="status_offline">ᴏꜰꜰʟɪɴᴇ</string>
+    <string name="status_last_seen">ʟᴀꜱᴛ ꜱᴇᴇɴ %1$s</string>
+    <string name="status_typing">ᴛʏᴘɪɴɢ...</string>
+    <string name="status_recording">ʀᴇᴄᴏʀᴅɪɴɢ...</string>
+    <string name="status_sending">ꜱᴇɴᴅɪɴɢ...</string>
+    <string name="status_sent">ꜱᴇɴᴛ</string>
+    <string name="status_delivered">ᴅᴇʟɪᴠᴇʀᴇᴅ</string>
+    <string name="status_read">ʀᴇᴀᴅ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ᴄʜᴀᴛ ɪɴᴛᴇʀꜰᴀᴄᴇ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="chat_input_hint">ᴛʏᴘᴇ ᴀ ᴍᴇꜱꜱᴀɢᴇ...</string>
+    <string name="chat_empty">ɴᴏ ᴍᴇꜱꜱᴀɢᴇꜱ ʏᴇᴛ</string>
+    <string name="chat_today">ᴛᴏᴅᴀʏ</string>
+    <string name="chat_yesterday">ʏᴇꜱᴛᴇʀᴅᴀʏ</string>
+    <string name="chat_new_messages">ɴᴇᴡ ᴍᴇꜱꜱᴀɢᴇꜱ</string>
+    <string name="chat_delete_confirm">ᴅᴇʟᴇᴛᴇ ᴛʜɪꜱ ᴄʜᴀᴛ?</string>
+    <string name="chat_archive">ᴀʀᴄʜɪᴠᴇ ᴄʜᴀᴛ</string>
+    <string name="chat_unarchive">ᴜɴᴀʀᴄʜɪᴠᴇ ᴄʜᴀᴛ</string>
+    <string name="chat_pin">ᴘɪɴ ᴄʜᴀᴛ</string>
+    <string name="chat_unpin">ᴜɴᴘɪɴ ᴄʜᴀᴛ</string>
+    <string name="chat_mute">ᴍᴜᴛᴇ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ</string>
+    <string name="chat_unmute">ᴜɴᴍᴜᴛᴇ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ</string>
+    <string name="chat_mark_read">ᴍᴀʀᴋ ᴀꜱ ʀᴇᴀᴅ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ ɪɴꜱᴘᴇᴄᴛᴏʀ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="inspector_title">ᴄᴏᴍᴍᴀɴᴅ ɪɴꜱᴘᴇᴄᴛᴏʀ</string>
+    <string name="inspector_command">ᴄᴏᴍᴍᴀɴᴅ</string>
+    <string name="inspector_user">ᴜꜱᴇʀ</string>
+    <string name="inspector_chat">ᴄʜᴀᴛ</string>
+    <string name="inspector_timestamp">ᴛɪᴍᴇ</string>
+    <string name="inspector_payload">ᴘᴀʏʟᴏᴀᴅ</string>
+    <string name="inspector_empty">ɴᴏ ᴄᴏᴍᴍᴀɴᴅꜱ ʀᴇᴄᴇɪᴠᴇᴅ ʏᴇᴛ</string>
+    <string name="inspector_filter">ꜰɪʟᴛᴇʀ ᴄᴏᴍᴍᴀɴᴅꜱ...</string>
+    <string name="inspector_clear">ᴄʟᴇᴀʀ ʟᴏɢ</string>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ ᴄʜᴀɴɴᴇʟ -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <string name="notification_channel_messages">ᴍᴇꜱꜱᴀɢᴇꜱ</string>
+    <string name="notification_channel_calls">ᴄᴀʟʟꜱ</string>
+    <string name="notification_channel_general">ɢᴇɴᴇʀᴀʟ</string>
+    <string name="notification_new_message">ɴᴇᴡ ᴍᴇꜱꜱᴀɢᴇ</string>
+    <string name="notification_from">ꜰʀᴏᴍ %1$s</string>
+
+</resources>

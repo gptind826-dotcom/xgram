@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ɢʟᴀꜱꜱ_ᴄᴀʀᴅ_ʙɢ.хᴍʟ
+    ꜰʀᴏꜱᴛᴇᴅ ɢʟᴀꜱꜱ ᴄᴀʀᴅ ʙᴀᴄᴋɢʀᴏᴜɴᴅ ꜰᴏʀ ᴄᴏɴᴛᴇɴᴛ ᴘᴀɴᴇʟꜱ
+    ᴜꜱᴇᴅ ɪɴ ᴄʜᴀᴛ ʟɪꜱᴛꜱ, ꜱᴇᴛᴛɪɴɢꜱ ᴘᴀɴᴇʟꜱ, ᴀɴᴅ ᴘʀᴏꜰɪʟᴇ ꜱᴇᴄᴛɪᴏɴꜱ
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="16dp" />
+    <solid android:color="@color/glass_bg_layer2" />
+    <stroke android:width="1px" android:color="@color/glass_border_subtle" />
+    <padding android:left="16dp" android:right="16dp" android:top="16dp" android:bottom="16dp" />
+</shape>

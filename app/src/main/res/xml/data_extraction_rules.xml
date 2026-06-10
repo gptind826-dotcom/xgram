@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ᴅᴀᴛᴀ_ᴇхᴛʀᴀᴄᴛɪᴏɴ_ʀᴜʟᴇꜱ.хᴍʟ
+    ᴅɪꜱᴀʙʟᴇꜱ ᴀᴜᴛᴏ-ʙᴀᴄᴋᴜᴘ ꜰᴏʀ ꜱᴇɴꜱɪᴛɪᴠᴇ ᴛᴇʟᴇɢʀᴀᴍ ꜱᴇꜱꜱɪᴏɴ ᴅᴀᴛᴀ
+    ᴀʟʟ ᴅᴀᴛᴀ ɪꜱ ᴇхᴄʟᴜᴅᴇᴅ ꜰʀᴏᴍ ᴄʟᴏᴜᴅ ʙᴀᴄᴋᴜᴘ
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="telegram_session.xml"/>
+        <exclude domain="sharedpref" path="secure_prefs.xml"/>
+        <exclude domain="database" path="telegram_cache.db"/>
+        <exclude domain="root" path="sessions/"/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="telegram_session.xml"/>
+        <exclude domain="sharedpref" path="secure_prefs.xml"/>
+    </device-transfer>
+</data-extraction-rules>

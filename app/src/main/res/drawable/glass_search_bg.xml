@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ɢʟᴀꜱꜱ_ꜱᴇᴀʀᴄʜ_ʙɢ.хᴍʟ
+    ꜰʀᴏꜱᴛᴇᴅ ɢʟᴀꜱꜱ ꜱᴇᴀʀᴄʜ ʙᴀʀ ʙᴀᴄᴋɢʀᴏᴜɴᴅ
+    ʀᴏᴜɴᴅᴇᴅ ᴘɪʟʟ ꜱʜᴀᴘᴇ ꜰᴏʀ ꜱᴇᴀʀᴄʜ ɪɴᴘᴜᴛ
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="24dp" />
+    <solid android:color="@color/glass_search_bg" />
+    <stroke android:width="1px" android:color="@color/glass_search_stroke" />
+    <padding android:left="16dp" android:right="16dp" android:top="10dp" android:bottom="10dp" />
+</shape>

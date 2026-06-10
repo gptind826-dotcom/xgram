@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ɢʟᴀꜱꜱ_ʙᴜᴛᴛᴏɴ_ᴘʀɪᴍᴀʀʏ_ʙɢ.хᴍʟ
+    ᴘʀɪᴍᴀʀʏ ᴀᴄᴛɪᴏɴ ʙᴜᴛᴛᴏɴ ᴡɪᴛʜ ɢʟᴀꜱꜱ ᴀᴄᴄᴇɴᴛ ɢʀᴀᴅɪᴇɴᴛ
+    ʙʀɪɢʜᴛ ᴄʏᴀɴ-ʙʟᴜᴇ ɢʟᴏᴡ ꜰᴏʀ ᴄᴛᴀ ʙᴜᴛᴛᴏɴꜱ
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="@color/glass_accent_bright" />
+            <stroke android:width="1px" android:color="#80FFFFFF" />
+        </shape>
+    </item>
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="#4D24BDBD" />
+            <stroke android:width="1px" android:color="#1AFFFFFF" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="@color/glass_accent"
+                android:endColor="@color/glass_accent_bright" />
+            <stroke android:width="1px" android:color="#4DFFFFFF" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_chats"
+        android:title="@string/main_tab_chats"
+        android:icon="@drawable/ic_chat_dashboard" />
+    <item
+        android:id="@+id/nav_channels"
+        android:title="@string/main_tab_channels"
+        android:icon="@drawable/ic_slideshow" />
+    <item
+        android:id="@+id/nav_groups"
+        android:title="@string/main_tab_groups"
+        android:icon="@drawable/ic_places" />
+    <item
+        android:id="@+id/nav_contacts"
+        android:title="@string/main_tab_contacts"
+        android:icon="@drawable/ic_calendar" />
+</menu>

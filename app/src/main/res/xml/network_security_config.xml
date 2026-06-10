@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ɴᴇᴛᴡᴏʀᴋ_ꜱᴇᴄᴜʀɪᴛʏ_ᴄᴏɴꜰɪɢ.хᴍʟ
+    ɴᴇᴛᴡᴏʀᴋ ꜱᴇᴄᴜʀɪᴛʏ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ꜰᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴘɪ ᴄᴏᴍᴍᴜɴɪᴄᴀᴛɪᴏɴ
+    ᴀʟʟᴏᴡꜱ ᴄʟᴇᴀʀᴛᴇхᴛ ᴛʀᴀꜰꜰɪᴄ ᴛᴏ ʟᴏᴄᴀʟ ᴅᴄꜱ ɪꜰ ɴᴇᴇᴅᴇᴅ
+    ᴅɪꜱᴀʙʟᴇᴅ ʙʏ ᴅᴇꜰᴀᴜʟᴛ — ᴛʟꜱ ᴏɴʟʏ
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">api.telegram.org</domain>
+        <domain includeSubdomains="true">tg.dev</domain>
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+</network-security-config>

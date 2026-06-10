@@ -1,0 +1,115 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.alternative.telegram'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.alternative.telegram"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 2
+        versionName "1.1.0-telegram-auth"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resConfigs "en"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "boolean", "ENABLE_LOGGING", "true"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ENABLE_LOGGING", "false"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt']
+            pickFirsts += ['META-INF/androidx.*']
+        }
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Android core
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation "androidx.activity:activity:1.8.2"
+    implementation "com.google.android.material:material:${rootProject.ext.materialVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayoutVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recyclerViewVersion}"
+    implementation "androidx.cardview:cardview:${rootProject.ext.cardViewVersion}"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-livedata:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${rootProject.ext.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-process:${rootProject.ext.lifecycleVersion}"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment:${rootProject.ext.navigationVersion}"
+    implementation "androidx.navigation:navigation-ui:${rootProject.ext.navigationVersion}"
+
+    // Preferences
+    implementation "androidx.preference:preference:${rootProject.ext.preferenceVersion}"
+
+    // Security
+    implementation "androidx.security:security-crypto:${rootProject.ext.securityVersion}"
+
+    // Biometric
+    implementation "androidx.biometric:biometric:${rootProject.ext.biometricVersion}"
+
+    // WorkManager
+    implementation "androidx.work:work-runtime:${rootProject.ext.workVersion}"
+
+    // Networking
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okhttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okhttpVersion}"
+
+    // Image loading
+    implementation "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glideVersion}"
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    // JSON
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
+
+    // WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:1.5.4'
+
+    // Multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

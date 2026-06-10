@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/glass_background_gradient"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+    <!-- ʙᴀᴄᴋ ʙᴜᴛᴛᴏɴ -->
+    <ImageButton
+        android:id="@+id/otpBackButton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="start"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:tint="@color/glass_text_secondary"
+        android:contentDescription="@string/action_back" />
+
+    <!-- ᴛɪᴛʟᴇ -->
+    <TextView
+        android:id="@+id/otpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/otp_title"
+        android:textAppearance="@style/GlassText.Headline"
+        android:textColor="@color/glass_text_primary" />
+
+    <!-- ꜱᴜʙᴛɪᴛʟᴇ -->
+    <TextView
+        android:id="@+id/otpSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/otp_subtitle"
+        android:textAppearance="@style/GlassText.Body"
+        android:textColor="@color/glass_text_secondary" />
+
+    <!-- ᴏᴛᴘ ɪɴᴘᴜᴛ -->
+    <EditText
+        android:id="@+id/otpCodeInput"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/glass_input_bg"
+        android:hint="@string/otp_code_hint"
+        android:textColor="@color/glass_input_text"
+        android:textColorHint="@color/glass_input_hint"
+        android:textSize="16sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:gravity="center" />
+
+    <!-- 2ꜰᴀ ᴘᴀꜱꜱᴡᴏʀᴅ (ᴏᴘᴛɪᴏɴᴀʟ) -->
+    <EditText
+        android:id="@+id/twoFaInput"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/glass_input_bg"
+        android:hint="@string/otp_2fa_hint"
+        android:textColor="@color/glass_input_text"
+        android:textColorHint="@color/glass_input_hint"
+        android:textSize="16sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="textPassword"
+        android:visibility="gone" />
+
+    <!-- ᴠᴇʀɪꜰʏ ʙᴜᴛᴛᴏɴ -->
+    <Button
+        android:id="@+id/verifyButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/glass_button_primary_bg"
+        android:text="@string/action_verify"
+        android:textColor="@color/glass_button_primary_text"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- ᴛɪᴍᴇʀ ᴛᴇхᴛ -->
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:textAppearance="@style/GlassText.Caption"
+        android:textColor="@color/glass_text_tertiary" />
+
+    <!-- ʀᴇꜱᴇɴᴅ ʙᴜᴛᴛᴏɴ -->
+    <Button
+        android:id="@+id/resendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/glass_button_ghost_bg"
+        android:text="@string/otp_resend_ready"
+        android:textColor="@color/glass_text_accent"
+        android:textSize="14sp"
+        android:enabled="false" />
+</LinearLayout>

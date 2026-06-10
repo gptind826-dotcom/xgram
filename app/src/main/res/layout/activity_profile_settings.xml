@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/glass_background_gradient">
+
+    <!-- ᴛᴏᴏʟʙᴀʀ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/glass_nav_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/profileBackButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@color/glass_text_secondary"
+            android:contentDescription="@string/action_back" />
+
+        <TextView
+            android:id="@+id/profileSettingsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/settings_edit_profile"
+            android:textAppearance="@style/GlassText.Title"
+            android:textColor="@color/glass_text_primary"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ᴜꜱᴇʀɴᴀᴍᴇ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_username"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/usernameInput"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/glass_input_bg"
+                android:textColor="@color/glass_input_text"
+                android:textColorHint="@color/glass_input_hint"
+                android:textSize="16sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="text"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ᴅɪꜱᴘʟᴀʏ ɴᴀᴍᴇ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ᴅɪꜱᴘʟᴀʏ ɴᴀᴍᴇ"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/displayNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/glass_input_bg"
+                android:textColor="@color/glass_input_text"
+                android:textColorHint="@color/glass_input_hint"
+                android:textSize="16sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ʙɪᴏ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_bio"
+                android:textAppearance="@style/GlassText.Label"
+                android:textColor="@color/glass_text_tertiary"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/bioInput"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/glass_input_bg"
+                android:textColor="@color/glass_input_text"
+                android:textColorHint="@color/glass_input_hint"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:gravity="top|start"
+                android:inputType="text|textMultiLine"
+                android:layout_marginBottom="24dp" />
+
+            <!-- ꜱᴀᴠᴇ ʙᴜᴛᴛᴏɴ -->
+            <Button
+                android:id="@+id/saveProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/glass_button_primary_bg"
+                android:text="@string/action_save"
+                android:textColor="@color/glass_button_primary_text"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
