@@ -9,6 +9,7 @@ package com.alternative.telegram.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
@@ -29,8 +30,18 @@ public class SmsOtpReceiver extends BroadcastReceiver {
         Object[] pdus = (Object[]) bundle.get("pdus");
         if (pdus == null) return;
 
+        String format = bundle.getString("format");
+
         for (Object pdu : pdus) {
-            SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) pdu);
+            SmsMessage smsMessage;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                smsMessage = SmsMessage.createFromPdu((byte[]) pdu, format);
+            } else {
+                smsMessage = SmsMessage.createFromPdu((byte[]) pdu);
+            }
+
+            if (smsMessage == null) continue;
+
             String messageBody = smsMessage.getMessageBody();
             String sender = smsMessage.getDisplayOriginatingAddress();
 

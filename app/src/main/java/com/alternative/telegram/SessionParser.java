@@ -141,8 +141,8 @@ public class SessionParser {
             this.botToken = null;
         }
 
-        // ᴇʀʀᴏʀ ᴄᴏɴꜱᴛʀᴜᴄᴛᴏʀ
-        public ParsedSession(String rawInput, String errorMessage, boolean isError) {
+        // ᴇʀʀᴏʀ ᴄᴏɴꜱᴛʀᴜᴄᴛᴏʀ — ᴜꜱᴇꜱ ɪɴᴛ ᴇʀʀᴏʀ ᴄᴏᴅᴇ ᴛᴏ ᴀᴠᴏɪᴅ ꜱɪɢɴᴀᴛᴜʀᴇ ᴄᴏɴꜰʟɪᴄᴛ
+        public ParsedSession(String rawInput, String errorMessage, int errorCode) {
             this.type = SessionType.UNKNOWN;
             this.rawInput = rawInput;
             this.errorMessage = errorMessage;
@@ -186,7 +186,7 @@ public class SessionParser {
      */
     public static ParsedSession autoDetect(String input) {
         if (input == null || input.trim().isEmpty()) {
-            return new ParsedSession(input, "Empty session string", true);
+            return new ParsedSession(input, "Empty session string", 0);
         }
 
         String trimmed = input.trim();
@@ -237,11 +237,11 @@ public class SessionParser {
             try {
                 decoded = Base64.decode(trimmed, Base64.DEFAULT);
             } catch (IllegalArgumentException e) {
-                return new ParsedSession(input, "Invalid Base64 encoding", true);
+                return new ParsedSession(input, "Invalid Base64 encoding", 0);
             }
 
             if (decoded.length < 25) {
-                return new ParsedSession(input, "Telethon session too short (need 25+ bytes)", true);
+                return new ParsedSession(input, "Telethon session too short (need 25+ bytes)", 0);
             }
 
             // ᴘᴀʀꜱᴇ ʙʏᴛᴇꜱ
@@ -251,7 +251,7 @@ public class SessionParser {
             // ʙʏᴛᴇ 0: ᴠᴇʀꜱɪᴏɴ (ᴍᴜꜱᴛ ʙᴇ 0x01)
             int version = buffer.get() & 0xFF;
             if (version != 1) {
-                return new ParsedSession(input, "Unknown Telethon version: " + version, true);
+                return new ParsedSession(input, "Unknown Telethon version: " + version, 0);
             }
 
             // ʙʏᴛᴇ 1: ᴅᴀᴛᴀᴄᴇɴᴛᴇʀ ɪᴅ
@@ -266,7 +266,7 @@ public class SessionParser {
             // ʙʏᴛᴇꜱ 10-13: ᴀᴜᴛʜ ᴋᴇʏ ʟᴇɴɢᴛʜ (ꜱʜᴏᴜʟᴅ ʙᴇ 256)
             int authKeyLen = buffer.getInt();
             if (authKeyLen != 256) {
-                return new ParsedSession(input, "Invalid auth key length: " + authKeyLen, true);
+                return new ParsedSession(input, "Invalid auth key length: " + authKeyLen, 0);
             }
 
             // ʀᴇᴍᴀɪɴɪɴɢ ʙʏᴛᴇꜱ: ᴀᴜᴛʜ ᴋᴇʏ
@@ -290,7 +290,7 @@ public class SessionParser {
 
         } catch (Exception e) {
             Log.e(TAG, "Telethon parse error", e);
-            return new ParsedSession(input, "Telethon parse error: " + e.getMessage(), true);
+            return new ParsedSession(input, "Telethon parse error: " + e.getMessage(), 0);
         }
     }
 
@@ -315,12 +315,12 @@ public class SessionParser {
                 try {
                     decoded = Base64.decode(trimmed, Base64.DEFAULT);
                 } catch (IllegalArgumentException e2) {
-                    return new ParsedSession(input, "Invalid Base64 encoding", true);
+                    return new ParsedSession(input, "Invalid Base64 encoding", 0);
                 }
             }
 
             if (decoded.length < 253) {
-                return new ParsedSession(input, "Pyrogram session too short (need 253+ bytes, got " + decoded.length + ")", true);
+                return new ParsedSession(input, "Pyrogram session too short (need 253+ bytes, got " + decoded.length + ")", 0);
             }
 
             ByteBuffer buffer = ByteBuffer.wrap(decoded);
@@ -336,7 +336,7 @@ public class SessionParser {
                 sig1 = buffer.get();
                 sig2 = buffer.get();
                 if (sig1 != 0x05 || sig2 != 0x01) {
-                    return new ParsedSession(input, "Invalid Pyrogram signature", true);
+                    return new ParsedSession(input, "Invalid Pyrogram signature", 0);
                 }
             }
 
@@ -379,7 +379,7 @@ public class SessionParser {
 
         } catch (Exception e) {
             Log.e(TAG, "Pyrogram parse error", e);
-            return new ParsedSession(input, "Pyrogram parse error: " + e.getMessage(), true);
+            return new ParsedSession(input, "Pyrogram parse error: " + e.getMessage(), 0);
         }
     }
 
@@ -392,13 +392,13 @@ public class SessionParser {
      */
     public static ParsedSession parseBotToken(String token) {
         if (token == null || token.trim().isEmpty()) {
-            return new ParsedSession(token, "Empty bot token", true);
+            return new ParsedSession(token, "Empty bot token", 0);
         }
 
         String trimmed = token.trim();
         Matcher matcher = BOT_TOKEN_PATTERN.matcher(trimmed);
         if (!matcher.matches()) {
-            return new ParsedSession(token, "Invalid bot token format. Expected: numbers:alphanumeric", true);
+            return new ParsedSession(token, "Invalid bot token format. Expected: numbers:alphanumeric", 0);
         }
 
         // ᴇхᴛʀᴀᴄᴛ ʙᴏᴛ ɪᴅ ꜰʀᴏᴍ ᴛᴏᴋᴇɴ (ᴘᴀʀᴛ ʙᴇꜰᴏʀᴇ ᴄᴏʟᴏɴ)
@@ -407,7 +407,7 @@ public class SessionParser {
             long botId = Long.parseLong(botIdStr);
             Log.i(TAG, "Bot token validated for bot ID: " + botId);
         } catch (NumberFormatException e) {
-            return new ParsedSession(token, "Invalid bot ID in token", true);
+            return new ParsedSession(token, "Invalid bot ID in token", 0);
         }
 
         return new ParsedSession(trimmed);
@@ -430,10 +430,10 @@ public class SessionParser {
      */
     public static ParsedSession parsePhoneNumber(String countryCode, String phoneNumber) {
         if (countryCode == null || countryCode.trim().isEmpty()) {
-            return new ParsedSession("", "Country code is required", true);
+            return new ParsedSession("", "Country code is required", 0);
         }
         if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
-            return new ParsedSession("", "Phone number is required", true);
+            return new ParsedSession("", "Phone number is required", 0);
         }
 
         // ᴄʟᴇᴀɴ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ
@@ -451,7 +451,7 @@ public class SessionParser {
         String fullNumber = cc + phone;
         Matcher matcher = PHONE_E164_PATTERN.matcher(fullNumber);
         if (!matcher.matches()) {
-            return new ParsedSession(fullNumber, "Invalid phone number format", true);
+            return new ParsedSession(fullNumber, "Invalid phone number format", 0);
         }
 
         Log.i(TAG, "Phone number parsed: " + cc + " " + maskPhone(phone));
@@ -539,4 +539,6 @@ public class SessionParser {
                 return "Phone Number";
             default:
                 return "Unknown";
-      
+              }
+    }
+}
