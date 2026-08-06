@@ -19,10 +19,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class BotManagementActivity extends AppCompatActivity {
 
     private TextView titleText;

@@ -1,30 +1,31 @@
+# Android Studio / Gradle
 *.iml
 .gradle/
-/local.properties
-/.idea/
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-/.idea/misc.xml
-/.idea/gradle.xml
-/.idea/compiler.xml
-/.idea/deploymentTargetDropDown.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+.idea/
 local.properties
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local tooling and task state
+.tools/
+planning/
+*.log
+
+# Build artifacts
 *.apk
 *.aab
 *.ap_
-/app/build/
-/app/release/
-/app/debug/
+app/release/
+app/debug/
+
+# Signing material
 keystore.jks
 *.jks
 *.pepk
-/signing/
+signing/
+
+# OS metadata
+.DS_Store

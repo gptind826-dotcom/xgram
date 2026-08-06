@@ -199,17 +199,17 @@ public class SessionManager {
     }
 
     public String getBotToken() {
-        return securePrefs.getString(KEY_BOT_TOKEN, null);
+        return getSecureString(KEY_BOT_TOKEN, null);
     }
 
     public byte[] getAuthKey() {
-        String authKeyB64 = securePrefs.getString(KEY_AUTH_KEY, null);
+        String authKeyB64 = getSecureString(KEY_AUTH_KEY, null);
         if (authKeyB64 != null) {
             try {
                 return Base64.decode(authKeyB64, Base64.DEFAULT);
             } catch (Exception e) {
                 Log.e(TAG, "Error decoding auth key", e);
-                return null;
+                invalidateUnreadableSession();
             }
         }
         return null;
@@ -220,31 +220,31 @@ public class SessionManager {
     }
 
     public int getDcId() {
-        return securePrefs.getInt(KEY_DC_ID, 1);
+        return getSecureInt(KEY_DC_ID, 1);
     }
 
     public int getApiId() {
-        return securePrefs.getInt(KEY_API_ID, 0);
+        return getSecureInt(KEY_API_ID, 0);
     }
 
     public String getServerAddress() {
-        return securePrefs.getString(KEY_SERVER_ADDRESS, null);
+        return getSecureString(KEY_SERVER_ADDRESS, null);
     }
 
     public int getPort() {
-        return securePrefs.getInt(KEY_PORT, 443);
+        return getSecureInt(KEY_PORT, 443);
     }
 
     public String getSessionString() {
-        return securePrefs.getString(KEY_SESSION_STRING, null);
+        return getSecureString(KEY_SESSION_STRING, null);
     }
 
     public String getPhoneNumber() {
-        return securePrefs.getString(KEY_PHONE_NUMBER, null);
+        return getSecureString(KEY_PHONE_NUMBER, null);
     }
 
     public String getCountryCode() {
-        return securePrefs.getString(KEY_COUNTRY_CODE, null);
+        return getSecureString(KEY_COUNTRY_CODE, null);
     }
 
     public void setUsername(String username) {
@@ -288,7 +288,26 @@ public class SessionManager {
     }
 
     public boolean isLoggedIn() {
-        return generalPrefs.getBoolean(KEY_IS_LOGGED_IN, false);
+        if (!generalPrefs.getBoolean(KEY_IS_LOGGED_IN, false)) {
+            return false;
+        }
+
+        String method = getLoginMethod();
+        boolean hasCredentials;
+        if (LOGIN_METHOD_BOT.equals(method)) {
+            hasCredentials = hasValue(getBotToken());
+        } else if (LOGIN_METHOD_PHONE.equals(method)) {
+            hasCredentials = hasValue(getPhoneNumber());
+        } else if (LOGIN_METHOD_SESSION.equals(method)) {
+            hasCredentials = hasValue(getSessionString());
+        } else {
+            hasCredentials = false;
+        }
+
+        if (!hasCredentials) {
+            invalidateUnreadableSession();
+        }
+        return hasCredentials;
     }
 
     public void updateLastActive() {
@@ -301,6 +320,38 @@ public class SessionManager {
 
     public String getSessionId() {
         return generalPrefs.getString(KEY_SESSION_ID, "");
+    }
+
+    private String getSecureString(String key, String defaultValue) {
+        try {
+            return securePrefs.getString(key, defaultValue);
+        } catch (Exception e) {
+            Log.e(TAG, "Secure session data is unreadable", e);
+            invalidateUnreadableSession();
+            return defaultValue;
+        }
+    }
+
+    private int getSecureInt(String key, int defaultValue) {
+        try {
+            return securePrefs.getInt(key, defaultValue);
+        } catch (Exception e) {
+            Log.e(TAG, "Secure session data is unreadable", e);
+            invalidateUnreadableSession();
+            return defaultValue;
+        }
+    }
+
+    private boolean hasValue(String value) {
+        return value != null && !value.isEmpty();
+    }
+
+    private void invalidateUnreadableSession() {
+        generalPrefs.edit()
+                .putBoolean(KEY_IS_LOGGED_IN, false)
+                .remove(KEY_LOGIN_METHOD)
+                .remove(KEY_USER_ID)
+                .apply();
     }
 
     public void clearSession() {

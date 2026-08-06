@@ -26,7 +26,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 public class TelegramApiClient {
 
@@ -40,14 +39,10 @@ public class TelegramApiClient {
     private String botToken;
 
     public TelegramApiClient() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         this.httpClient = new OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
                 .readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                .addInterceptor(logging)
                 .build();
     }
 

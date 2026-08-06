@@ -55,7 +55,13 @@ public class OtpVerificationActivity extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         apiId = getIntent().getIntExtra("api_id", 2040);
         apiHash = getIntent().getStringExtra("api_hash");
-        timeout = getIntent().getIntExtra("timeout", 120);
+        timeout = Math.max(1, getIntent().getIntExtra("timeout", 120));
+
+        if (countryCode == null || phone == null || apiHash == null) {
+            setResult(RESULT_CANCELED);
+            finish();
+            return;
+        }
 
         titleText = findViewById(R.id.otpTitle);
         subtitleText = findViewById(R.id.otpSubtitle);
@@ -75,7 +81,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
 
         subtitleText.setText(MiniFontConverter.convert("ᴇɴᴛᴇʀ ᴛʜᴇ ᴄᴏᴅᴇ ꜱᴇɴᴛ ᴛᴏ " + maskPhone(phoneNumber)));
 
-        backButton.setOnClickListener(v -> finish());
+        backButton.setOnClickListener(v -> cancelAndFinish());
         verifyButton.setOnClickListener(v -> verifyCode());
         resendButton.setOnClickListener(v -> resendCode());
 
@@ -84,10 +90,15 @@ public class OtpVerificationActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new androidx.activity.OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                authManager.cancelPhoneAuth();
-                finish();
+                cancelAndFinish();
             }
         });
+    }
+
+    private void cancelAndFinish() {
+        authManager.cancelPhoneAuth();
+        setResult(RESULT_CANCELED);
+        finish();
     }
 
     private void verifyCode() {
@@ -118,8 +129,8 @@ public class OtpVerificationActivity extends AppCompatActivity {
     }
 
     private void resendCode() {
-        verifyButton.setEnabled(false);
-        verifyButton.setText(MiniFontConverter.convert("ʀᴇꜱᴇɴᴅɪɴɢ..."));
+        resendButton.setEnabled(false);
+        resendButton.setText(MiniFontConverter.convert("ʀᴇꜱᴇɴᴅɪɴɢ..."));
 
         // Re-request the code via auth manager
         authManager.cancelPhoneAuth();
@@ -128,17 +139,16 @@ public class OtpVerificationActivity extends AppCompatActivity {
                 new TelegramAuthManager.PhoneCodeCallback() {
                     @Override
                     public void onCodeSent(String type, int timeout) {
-                        verifyButton.setEnabled(true);
-                        verifyButton.setText(MiniFontConverter.convert("ᴠᴇʀɪꜰʏ"));
+                        resendButton.setText(MiniFontConverter.convert("ʀᴇꜱᴇɴᴅ"));
                         MiniFontConverter.showToast(OtpVerificationActivity.this,
                                 "ᴄᴏᴅᴇ ʀᴇꜱᴇɴᴛ", Toast.LENGTH_SHORT);
-                        startResendTimer(timeout * 1000L);
+                        startResendTimer(Math.max(1, timeout) * 1000L);
                     }
 
                     @Override
                     public void onError(String error) {
-                        verifyButton.setEnabled(true);
-                        verifyButton.setText(MiniFontConverter.convert("ᴠᴇʀɪꜰʏ"));
+                        resendButton.setEnabled(true);
+                        resendButton.setText(MiniFontConverter.convert("ʀᴇꜱᴇɴᴅ"));
                         MiniFontConverter.showToast(OtpVerificationActivity.this,
                                 "ꜰᴀɪʟᴇᴅ: " + error, Toast.LENGTH_LONG);
                     }

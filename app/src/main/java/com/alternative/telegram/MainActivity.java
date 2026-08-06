@@ -15,8 +15,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -87,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     private BackgroundManager backgroundManager;
     private TelegramAuthManager authManager;
-    private Handler mainHandler;
 
     // ᴀᴅᴀᴘᴛᴇʀ
     private MainPagerAdapter pagerAdapter;
@@ -101,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
         sessionManager = SessionManager.getInstance(this);
         backgroundManager = BackgroundManager.getInstance(this);
         authManager = TelegramAuthManager.getInstance(this);
-        mainHandler = new Handler(Looper.getMainLooper());
 
         // ᴠᴇʀɪꜰʏ ʟᴏɢɪɴ ꜱᴛᴀᴛᴇ
         if (!sessionManager.isLoggedIn()) {
@@ -140,13 +136,24 @@ public class MainActivity extends AppCompatActivity {
         authManager.getBotInfo(new TelegramAuthManager.BotInfoCallback() {
             @Override
             public void onInfoLoaded(TelegramApiClient.BotUser botUser) {
-                settingsProfileName.setText(MiniFontConverter.convert(botUser.getDisplayName()));
+                if (isFinishing() || isDestroyed()) {
+                    return;
+                }
+
+                String displayName = botUser.getDisplayName();
+                if (displayName == null || displayName.trim().isEmpty()) {
+                    displayName = "Bot";
+                }
+                String username = botUser.username != null ? botUser.username : "";
+
+                settingsProfileName.setText(MiniFontConverter.convert(displayName));
                 settingsAvatarInitial.setText(MiniFontConverter.convert(
-                        String.valueOf(botUser.firstName.charAt(0)).toUpperCase()));
-                settingsProfileStatus.setText(MiniFontConverter.convert("@" + botUser.username));
-                sessionManager.setDisplayName(botUser.getDisplayName());
-                sessionManager.setUsername(botUser.username);
-                Log.i(TAG, "Bot info loaded: @" + botUser.username);
+                        displayName.substring(0, 1).toUpperCase()));
+                settingsProfileStatus.setText(MiniFontConverter.convert(
+                        username.isEmpty() ? "ʙᴏᴛ ᴀᴄᴄᴏᴜɴᴛ" : "@" + username));
+                sessionManager.setDisplayName(displayName);
+                sessionManager.setUsername(username);
+                Log.i(TAG, "Bot info loaded");
             }
 
             @Override
@@ -564,6 +571,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // onResume still runs when onCreate redirects an unauthenticated launch.
+        // In that path the dashboard views have intentionally not been bound.
+        if (sessionManager == null || !sessionManager.isLoggedIn()
+                || settingsProfileName == null) {
+            return;
+        }
+
         sessionManager.updateLastActive();
 
         // ʀᴇʟᴏᴀᴅ ꜱᴇᴛᴛɪɴɢꜱ ɪɴ ᴄᴀꜱᴇ ᴘʀᴏꜰɪʟᴇ ᴡᴀꜱ ᴇᴅɪᴛᴇᴅ

@@ -68,7 +68,7 @@ public class SmsOtpReceiver extends BroadcastReceiver {
                 if (sender != null && (sender.contains("Telegram") || sender.contains("72724"))) {
                     String otp = extractOtp(messageBody);
                     if (otp != null) {
-                        Log.i(TAG, "OTP extracted: " + otp);
+                        Log.i(TAG, "OTP extracted");
                         Intent otpIntent = new Intent("com.alternative.telegram.OTP_RECEIVED");
                         otpIntent.putExtra("otp_code", otp);
                         otpIntent.setPackage(context.getPackageName());

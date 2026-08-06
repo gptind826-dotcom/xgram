@@ -20,7 +20,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
@@ -33,14 +32,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alternative.telegram.api.TelegramAuthManager;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG = "LoginActivity";
     private static final int OTP_REQUEST_CODE = 1001;
 
     // Default Telegram API credentials (users can override)
@@ -547,7 +544,12 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        if (mainHandler != null) {
+            mainHandler.removeCallbacksAndMessages(null);
+        }
+        if ((isFinishing() || isChangingConfigurations()) && authManager != null) {
+            authManager.cancelPhoneAuth();
+        }
         super.onDestroy();
-        authManager.cancelPhoneAuth();
     }
 }

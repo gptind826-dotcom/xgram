@@ -14,11 +14,6 @@
 package com.alternative.telegram;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.StyleSpan;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,8 +22,6 @@ import android.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBar;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.HashMap;
