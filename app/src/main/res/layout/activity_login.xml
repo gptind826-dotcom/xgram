@@ -51,22 +51,14 @@
                 android:layout_marginTop="48dp"
                 android:layout_marginBottom="32dp">
 
-                <!-- ʟᴏɢᴏ / ʙʀᴀɴᴅɪɴɢ ɪᴄᴏɴ (ɢʟᴀꜱꜱ ᴀᴄᴄᴇɴᴛ ᴄɪʀᴄʟᴇ) -->
-                <FrameLayout
+                <!-- ʟᴏɢᴏ / ʙʀᴀɴᴅɪɴɢ ɪᴄᴏɴ -->
+                <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/glass_logo_background">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="X"
-                        android:textColor="@color/glass_accent_bright"
-                        android:textSize="36sp"
-                        android:fontFamily="sans-serif-medium" />
-                </FrameLayout>
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_launcher" />
 
                 <!-- ᴀᴘᴘ ᴛɪᴛʟᴇ -->
                 <TextView
