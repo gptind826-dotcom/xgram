@@ -47,6 +47,21 @@ public class StartupSmokeTest {
     }
 
     @Test
+    public void malformedPersistedSettingsFallBackToLoginScreen() {
+        appContext.getSharedPreferences("telegram_session_general", Context.MODE_PRIVATE)
+                .edit()
+                .putString("is_logged_in", "true")
+                .putBoolean("custom_background_url", true)
+                .commit();
+        sessionManager.forceReinitialize(appContext);
+
+        try (ActivityScenario<LoginActivity> ignored =
+                     ActivityScenario.launch(LoginActivity.class)) {
+            onView(withId(R.id.loginTitle)).check(matches(isDisplayed()));
+        }
+    }
+
+    @Test
     public void staleLoginFlagFallsBackToLoginScreen() {
         appContext.getSharedPreferences("telegram_session_general", Context.MODE_PRIVATE)
                 .edit()

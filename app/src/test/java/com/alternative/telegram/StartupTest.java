@@ -59,6 +59,28 @@ public class StartupTest {
     }
 
     @Test
+    public void loginActivityRecoversFromMalformedPreferences() {
+        context.getSharedPreferences("telegram_session_general", Context.MODE_PRIVATE)
+                .edit()
+                .putString("is_logged_in", "true")
+                .putBoolean("custom_background_url", true)
+                .commit();
+        sessionManager.forceReinitialize(context);
+        sessionManager = SessionManager.getInstance(context);
+
+        try (ActivityController<LoginActivity> controller =
+                     Robolectric.buildActivity(LoginActivity.class).setup()) {
+            LoginActivity activity = controller.get();
+            assertFalse(activity.isFinishing());
+            assertNotNull(activity.findViewById(R.id.loginTitle));
+            assertFalse(sessionManager.isLoggedIn());
+            assertFalse(context.getSharedPreferences(
+                            "telegram_session_general", Context.MODE_PRIVATE)
+                    .contains("custom_background_url"));
+        }
+    }
+
+    @Test
     public void secondaryActivitiesInflate() {
         Intent otpIntent = new Intent(context, OtpVerificationActivity.class)
                 .putExtra("phone_number", "+15551234567")

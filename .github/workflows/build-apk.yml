@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Optional release tag, for example v1.2.0'
+        description: 'Optional release tag, for example v1.2.1'
         required: false
         default: ''
 
@@ -41,13 +41,13 @@ jobs:
       - name: Prepare APK
         run: |
           mkdir -p release-assets
-          cp app/build/outputs/apk/debug/app-debug.apk release-assets/XGram-v1.2.0-debug.apk
+          cp app/build/outputs/apk/debug/app-debug.apk release-assets/XGram-v1.2.1-debug.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: XGram-v1.2.0-debug-apk
-          path: release-assets/XGram-v1.2.0-debug.apk
+          name: XGram-v1.2.1-debug-apk
+          path: release-assets/XGram-v1.2.1-debug.apk
           if-no-files-found: error
           retention-days: 30
 
@@ -61,6 +61,6 @@ jobs:
             Installable debug APK built from the tested source on this tag.
 
             Verification: unit startup tests, Android lint, APK assembly, and debug signing.
-          files: release-assets/XGram-v1.2.0-debug.apk
+          files: release-assets/XGram-v1.2.1-debug.apk
           draft: false
           prerelease: false

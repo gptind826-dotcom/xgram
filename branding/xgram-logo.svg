@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
+  <title id="title">XGram logo</title>
+  <desc id="description">A cyan X crossed by a white paper plane on a layered midnight-blue background.</desc>
+  <defs>
+    <clipPath id="appIcon">
+      <rect width="1024" height="1024" rx="224"/>
+    </clipPath>
+    <linearGradient id="background" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050F1E"/>
+      <stop offset="1" stop-color="#0A2541"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(560 350) rotate(90) scale(340)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ribbonUp" x1="526" y1="244" x2="526" y2="778" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B7D8"/>
+      <stop offset="1" stop-color="#25D3EE"/>
+    </linearGradient>
+    <linearGradient id="ribbonDown" x1="526" y1="244" x2="526" y2="778" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#22C6E0"/>
+    </linearGradient>
+    <filter id="emblemShadow" x="150" y="170" width="730" height="720" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="36" stdDeviation="20" flood-color="#000511" flood-opacity=".7"/>
+    </filter>
+    <filter id="planeShadow" x="400" y="310" width="430" height="440" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#000A18" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#appIcon)">
+    <rect width="1024" height="1024" fill="url(#background)"/>
+    <rect width="1024" height="1024" fill="url(#glow)"/>
+    <path d="M0 690 760 282l264 148v594H0Z" fill="#071B3A" fill-opacity=".88"/>
+    <path d="M0 900 790 475l234 160v389H0Z" fill="#113458" fill-opacity=".92"/>
+    <g filter="url(#emblemShadow)">
+      <path d="m244 778 406-534h158L402 778Z" fill="url(#ribbonUp)"/>
+      <path d="M250 244h158l394 534H644Z" fill="url(#ribbonDown)"/>
+    </g>
+    <g filter="url(#planeShadow)">
+      <path d="m448 500 336-152-128 348-82-98-72 58 34-98Z" fill="#fff"/>
+      <path d="m536 558 248-210-210 250Z" fill="#DAF9FF"/>
+    </g>
+  </g>
+</svg>

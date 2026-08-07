@@ -183,7 +183,7 @@ public class SessionManager {
     }
 
     public String getLoginMethod() {
-        return generalPrefs.getString(KEY_LOGIN_METHOD, "");
+        return getGeneralString(KEY_LOGIN_METHOD, "");
     }
 
     public boolean isBotLogin() {
@@ -216,7 +216,7 @@ public class SessionManager {
     }
 
     public long getUserId() {
-        return generalPrefs.getLong(KEY_USER_ID, 0);
+        return getGeneralLong(KEY_USER_ID, 0);
     }
 
     public int getDcId() {
@@ -252,7 +252,7 @@ public class SessionManager {
     }
 
     public String getUsername() {
-        return generalPrefs.getString(KEY_USERNAME, "");
+        return getGeneralString(KEY_USERNAME, "");
     }
 
     public void setDisplayName(String name) {
@@ -260,7 +260,7 @@ public class SessionManager {
     }
 
     public String getDisplayName() {
-        return generalPrefs.getString(KEY_DISPLAY_NAME, "");
+        return getGeneralString(KEY_DISPLAY_NAME, "");
     }
 
     public void setBio(String bio) {
@@ -268,7 +268,7 @@ public class SessionManager {
     }
 
     public String getBio() {
-        return generalPrefs.getString(KEY_BIO, "");
+        return getGeneralString(KEY_BIO, "");
     }
 
     public void setProfilePhotoUrl(String url) {
@@ -276,7 +276,7 @@ public class SessionManager {
     }
 
     public String getProfilePhotoUrl() {
-        return generalPrefs.getString(KEY_PROFILE_PHOTO_URL, null);
+        return getGeneralString(KEY_PROFILE_PHOTO_URL, null);
     }
 
     public void setCustomBackgroundUrl(String url) {
@@ -284,11 +284,11 @@ public class SessionManager {
     }
 
     public String getCustomBackgroundUrl() {
-        return generalPrefs.getString(KEY_CUSTOM_BG_URL, null);
+        return getGeneralString(KEY_CUSTOM_BG_URL, null);
     }
 
     public boolean isLoggedIn() {
-        if (!generalPrefs.getBoolean(KEY_IS_LOGGED_IN, false)) {
+        if (!getGeneralBoolean(KEY_IS_LOGGED_IN, false)) {
             return false;
         }
 
@@ -315,11 +315,11 @@ public class SessionManager {
     }
 
     public long getLastActive() {
-        return generalPrefs.getLong(KEY_LAST_ACTIVE, 0);
+        return getGeneralLong(KEY_LAST_ACTIVE, 0);
     }
 
     public String getSessionId() {
-        return generalPrefs.getString(KEY_SESSION_ID, "");
+        return getGeneralString(KEY_SESSION_ID, "");
     }
 
     private String getSecureString(String key, String defaultValue) {
@@ -342,16 +342,57 @@ public class SessionManager {
         }
     }
 
+    private String getGeneralString(String key, String defaultValue) {
+        try {
+            return generalPrefs.getString(key, defaultValue);
+        } catch (Exception e) {
+            removeInvalidGeneralPreference(key, e);
+            return defaultValue;
+        }
+    }
+
+    private long getGeneralLong(String key, long defaultValue) {
+        try {
+            return generalPrefs.getLong(key, defaultValue);
+        } catch (Exception e) {
+            removeInvalidGeneralPreference(key, e);
+            return defaultValue;
+        }
+    }
+
+    private boolean getGeneralBoolean(String key, boolean defaultValue) {
+        try {
+            return generalPrefs.getBoolean(key, defaultValue);
+        } catch (Exception e) {
+            removeInvalidGeneralPreference(key, e);
+            return defaultValue;
+        }
+    }
+
+    private void removeInvalidGeneralPreference(String key, Exception cause) {
+        Log.w(TAG, "Removing unreadable general preference: " + key, cause);
+        try {
+            generalPrefs.edit().remove(key).apply();
+        } catch (Exception cleanupError) {
+            Log.e(TAG, "Failed to remove unreadable general preference: " + key,
+                    cleanupError);
+        }
+    }
+
     private boolean hasValue(String value) {
         return value != null && !value.isEmpty();
     }
 
     private void invalidateUnreadableSession() {
-        generalPrefs.edit()
-                .putBoolean(KEY_IS_LOGGED_IN, false)
-                .remove(KEY_LOGIN_METHOD)
-                .remove(KEY_USER_ID)
-                .apply();
+        try {
+            generalPrefs.edit()
+                    .putBoolean(KEY_IS_LOGGED_IN, false)
+                    .remove(KEY_LOGIN_METHOD)
+                    .remove(KEY_USER_ID)
+                    .apply();
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to invalidate unreadable session", e);
+        }
     }
 
     public void clearSession() {
