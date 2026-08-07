@@ -5,6 +5,7 @@
     ᴜꜱᴇᴅ ᴀꜱ ᴀɴ ᴏᴠᴇʀʟᴀʏ ᴏɴ ᴛᴏᴘ ᴏꜰ ʟᴏɢɪɴᴀᴄᴛɪᴠɪᴛʏ
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -31,7 +32,7 @@
                 android:layout_height="44dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
-                android:tint="@color/glass_text_secondary"
+                app:tint="@color/glass_text_secondary"
                 android:contentDescription="@string/action_back" />
 
             <TextView

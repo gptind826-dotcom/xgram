@@ -21,7 +21,6 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
 
         <!-- ᴅɪꜱᴀʙʟᴇ ᴅᴇꜰᴀᴜʟᴛ ᴀᴄᴛɪᴏɴ ʙᴀʀ — ᴡᴇ ᴜꜱᴇ ᴄᴜꜱᴛᴏᴍ ɢʟᴀꜱꜱ ᴛᴏᴏʟʙᴀʀ -->
         <item name="windowActionBar">false</item>

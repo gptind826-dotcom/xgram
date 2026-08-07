@@ -4,17 +4,13 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <group
-        android:scaleX="0.6"
-        android:scaleY="0.6"
-        android:translateX="21.6"
-        android:translateY="21.6">
-        <!-- Paper airplane shape with X -->
-        <path
-            android:fillColor="#00BCD4"
-            android:pathData="M54,10L12,42l16,4l26,-20l-20,26l4,16l32,-42z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M44,38l-4,4l6,6l-6,6l4,4l6,-6l6,6l4,-4l-6,-6l6,-6l-4,-4l-6,6z" />
-    </group>
+    <path
+        android:fillColor="#22D3EE"
+        android:pathData="M25,25L40,25L54,44L68,25L83,25L61.5,54L84,83L69,83L54,64L39,83L24,83L46.5,54Z" />
+    <path
+        android:fillColor="#67E8F9"
+        android:pathData="M25,25L40,25L84,83L69,83Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M49,50L76,38L65,66L58,58L51,63L53,55Z" />
 </vector>

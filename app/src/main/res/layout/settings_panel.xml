@@ -6,6 +6,7 @@
     ᴄᴏɴᴛᴇхᴛ ᴠɪᴇᴡ ʙ: ʙᴏᴛ ᴛᴏᴋᴇɴ ꜱᴇᴛᴛɪɴɢꜱ
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -27,7 +28,7 @@
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_close"
-            android:tint="@color/glass_text_secondary"
+            app:tint="@color/glass_text_secondary"
             android:contentDescription="@string/action_close" />
 
         <TextView
@@ -199,7 +200,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_edit"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -215,7 +216,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -236,7 +237,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_lock"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -252,7 +253,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -273,7 +274,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_history"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -289,7 +290,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -310,7 +311,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_view"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -326,7 +327,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
             </LinearLayout>
@@ -367,7 +368,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_edit"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -383,7 +384,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -404,7 +405,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_info"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -420,7 +421,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -441,7 +442,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_sort"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -457,7 +458,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
@@ -478,7 +479,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_set_as"
-                        android:tint="@color/glass_text_secondary"
+                        app:tint="@color/glass_text_secondary"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@null" />
 
@@ -494,7 +495,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_next"
-                        android:tint="@color/glass_text_tertiary"
+                        app:tint="@color/glass_text_tertiary"
                         android:contentDescription="@null" />
                 </LinearLayout>
             </LinearLayout>
@@ -525,7 +526,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_notifications"
-                    android:tint="@color/glass_text_secondary"
+                    app:tint="@color/glass_text_secondary"
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@null" />
 

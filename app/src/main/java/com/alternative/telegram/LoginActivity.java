@@ -547,7 +547,7 @@ public class LoginActivity extends AppCompatActivity {
         if (mainHandler != null) {
             mainHandler.removeCallbacksAndMessages(null);
         }
-        if ((isFinishing() || isChangingConfigurations()) && authManager != null) {
+        if (isFinishing() && !isChangingConfigurations() && authManager != null) {
             authManager.cancelPhoneAuth();
         }
         super.onDestroy();

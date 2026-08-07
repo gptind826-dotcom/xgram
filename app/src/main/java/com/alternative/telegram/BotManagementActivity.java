@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +28,7 @@ public class BotManagementActivity extends AppCompatActivity {
     private Button saveBotButton;
     private LinearLayout inspectorContainer;
     private TextView inspectorEmptyText;
-    private ScrollView inspectorScrollView;
+    private View inspectorScrollView;
     private Button clearLogButton;
 
     private SessionManager sessionManager;
@@ -97,6 +96,7 @@ public class BotManagementActivity extends AppCompatActivity {
 
     private void clearCommandLog() {
         inspectorContainer.removeAllViews();
+        inspectorContainer.addView(inspectorEmptyText);
         inspectorEmptyText.setVisibility(View.VISIBLE);
         MiniFontConverter.showToast(this, "ᴄᴏᴍᴍᴀɴᴅ ʟᴏɢ ᴄʟᴇᴀʀᴇᴅ", Toast.LENGTH_SHORT);
     }

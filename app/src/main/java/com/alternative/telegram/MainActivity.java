@@ -41,6 +41,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.json.JSONArray;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -92,18 +94,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        // ɪɴɪᴛɪᴀʟɪᴢᴇ
         sessionManager = SessionManager.getInstance(this);
-        backgroundManager = BackgroundManager.getInstance(this);
-        authManager = TelegramAuthManager.getInstance(this);
-
-        // ᴠᴇʀɪꜰʏ ʟᴏɢɪɴ ꜱᴛᴀᴛᴇ
         if (!sessionManager.isLoggedIn()) {
             navigateToLogin();
             return;
         }
+
+        setContentView(R.layout.activity_main);
+        backgroundManager = BackgroundManager.getInstance(this);
+        authManager = TelegramAuthManager.getInstance(this);
 
         bindViews();
         applyMiniFontStyles();
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
                 settingsProfileName.setText(MiniFontConverter.convert(displayName));
                 settingsAvatarInitial.setText(MiniFontConverter.convert(
-                        displayName.substring(0, 1).toUpperCase()));
+                        displayName.substring(0, 1).toUpperCase(Locale.getDefault())));
                 settingsProfileStatus.setText(MiniFontConverter.convert(
                         username.isEmpty() ? "ʙᴏᴛ ᴀᴄᴄᴏᴜɴᴛ" : "@" + username));
                 sessionManager.setDisplayName(displayName);
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }
         settingsProfileName.setText(MiniFontConverter.convert(displayName));
         settingsAvatarInitial.setText(MiniFontConverter.convert(
-                String.valueOf(displayName.charAt(0)).toUpperCase()));
+                String.valueOf(displayName.charAt(0)).toUpperCase(Locale.getDefault())));
         settingsProfileStatus.setText(MiniFontConverter.convert(
                 sessionManager.getPhoneNumber() != null ? sessionManager.getPhoneNumber() : ""));
     }
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         }
         settingsProfileName.setText(MiniFontConverter.convert(displayName));
         settingsAvatarInitial.setText(MiniFontConverter.convert(
-                String.valueOf(displayName.charAt(0)).toUpperCase()));
+                String.valueOf(displayName.charAt(0)).toUpperCase(Locale.getDefault())));
         settingsProfileStatus.setText(MiniFontConverter.convert(
                 "ᴅᴄ" + sessionManager.getDcId() + " | ᴀᴘɪ" + sessionManager.getApiId()));
     }
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
 
         settingsProfileName.setText(MiniFontConverter.convert(displayName));
         settingsAvatarInitial.setText(MiniFontConverter.convert(
-                String.valueOf(displayName.charAt(0)).toUpperCase()));
+                String.valueOf(displayName.charAt(0)).toUpperCase(Locale.getDefault())));
 
         // ʟᴏᴀᴅ ꜱᴀᴠᴇᴅ ʙᴀᴄᴋɢʀᴏᴜɴᴅ ᴜʀʟ
         String savedUrl = sessionManager.getCustomBackgroundUrl();
